@@ -12,7 +12,6 @@ import java.awt.Graphics;
 
 public class Body extends Physics
 {
-	// Fields section
 	
 	/**
 	 * Describes the Body's mass
@@ -54,17 +53,26 @@ public class Body extends Physics
 	 */
 	private Color color;
 
-	
+	/**
+	 * Creates a physical object (like a planet or a spaceship) that
+	 * obeys to physics law.
+	 * 
+	 * @param mass 	The mass of the Body
+	 * @param x    	The X initial position of the Body
+	 * @param y		The Y initial position of the Body
+	 * @param c		The color of the Body
+	 */
 	public Body(double mass, int x, int y, Color c)
 	{
 		this.mass = mass;
 		this.x = x;
 		this.y = y;
 		this.color = c;
-		xAcc = 0;
-		yAcc = 0;
 	}
 	
+	/**
+	 * A test method used to update variables.
+	 */
 	public void update()
 	{
 		this.xAcc = 0;
@@ -75,22 +83,38 @@ public class Body extends Physics
 		this.y += this.yVel;
 	}
 	
+	/**
+	 * The method used to draw the Body.
+	 * @param g
+	 */
 	public void draw(Graphics g)
 	{
 		g.setColor(this.color);
 		g.fillOval(this.x, this.y, 50, 50);
 	}
 	
+	/**
+	 * Return the Body mass.
+	 * @return
+	 */
 	public double getMass()
 	{
 		return this.mass;
 	}
 	
+	/**
+	 * Return the Body position on the X axis.
+	 * @return
+	 */
 	public double getX()
 	{
 		return this.x;
 	}
 	
+	/**
+	 * Return the Body position on the X axis.	
+	 * @return
+	 */
 	public double getY()
 	{
 		return this.y;
