@@ -1,3 +1,5 @@
+package viope.space.game;
+
 import java.awt.Color;
 
 public class Planet extends Body
