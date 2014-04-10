@@ -8,8 +8,8 @@ public class Planet extends Body
 	{
 		super(name, mass, parent.getX(), parent.getY(), c);
 		
-		this.x = (int) (parent.getX() + (peri / Body.scale));
-		this.y = parent.getY();
+		this.setX((int)(parent.getX() + (peri / Body.scale)));
+		this.setY(parent.getY());
 		this.xVel = 0;
 		this.yVel = -1 * iVel;
 	}

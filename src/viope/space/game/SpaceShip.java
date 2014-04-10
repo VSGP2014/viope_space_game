@@ -7,8 +7,8 @@ public class SpaceShip extends Body{
 	private int energy;
 	private boolean launched;
 	
-	public SpaceShip(double mass, int x, int y, Color c, int energy) {
-		super(mass, x, y, c);
+	public SpaceShip(String name, double mass, int x, int y, Color c, int energy) {
+		super(name, mass, x, y, c);
 		this.energy=energy;
 		this.launched=false;
 	}

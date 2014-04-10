@@ -87,18 +87,18 @@ public class Body extends Physics
 		double yf = Physics.sumForce(Physics.getNetYForce(this));
 		this.setXAcc(xf / this.mass);
 		this.setXVel(this.getXVel() + this.getXAcc());
-		this.setX(this.getX() + this.getXVel());
+		this.setX(this.getX() + (int)this.getXVel());
 		
 		this.setYAcc(yf / this.mass);
 		this.setYVel(this.getYVel() + this.getYAcc());
-		this.setY(this.getY() + this.getYVel());
+		this.setY(this.getY() + (int)this.getYVel());
 		
 		Physics.clearForces();
 	}
 	
 	/**
 	 * The method used to draw the Body.
-	 * @param g
+	 * @param g	The graphical place-holder of the body
 	 */
 	public void draw(Graphics g)
 	{
@@ -140,7 +140,7 @@ public class Body extends Physics
 	 * Return the Body position on the X axis.
 	 * @return
 	 */
-	public double getX()
+	public int getX()
 	{
 		return this.x;
 	}
@@ -149,56 +149,94 @@ public class Body extends Physics
 	 * Return the Body position on the X axis.	
 	 * @return
 	 */
-	public double getY()
+	public int getY()
 	{
 		return this.y;
 	}
 	
-	public void setX(double num)
-	{
-		this.x = (int) num;
+	/**
+	 * 
+	 * @param num
+	 */
+	public void setX(int num) {
+		this.x = num;
 	}
 	
-	public void setY(double num)
-	{
-		this.y = (int) num;
+	/**
+	 * 
+	 * @param num
+	 */
+	public void setY(int num) {
+		this.y = num;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double getXVel()
 	{
 		return this.xVel;
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 */
 	public void setXVel(double num)
 	{
 		this.xVel = num;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double getYVel()
 	{
 		return this.yVel;
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 */
 	public void setYVel(double num)
 	{
 		this.yVel = num;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double getXAcc()
 	{
 		return this.xAcc;
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 */
 	public void setXAcc(double num)
 	{
 		this.xAcc = num;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
 	public double getYAcc()
 	{
 		return this.yAcc;
 	}
 	
+	/**
+	 * 
+	 * @param num
+	 */
 	public void setYAcc(double num)
 	{
 		this.yAcc = num;
