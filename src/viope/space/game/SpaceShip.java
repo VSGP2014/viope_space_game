@@ -9,7 +9,7 @@ public class SpaceShip extends Body{
 	public SpaceShip(double mass, int x, int y, Color c, int energy) {
 		super(mass, x, y, c);
 		this.energy=energy;
-		// TODO Auto-generated constructor stub
+		
 	}
 	public void Launch()
 	{

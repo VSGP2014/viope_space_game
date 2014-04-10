@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub 
 		SpaceShip ship;
 		Scanner input=new Scanner(System.in);
 		Color shipColor=new Color(0, 0, 0);		
