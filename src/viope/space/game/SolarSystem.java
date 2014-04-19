@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * @author Margarida & Monica
+ * This class should contain all the stuff needed for creating a virtual copy of our solar system.
+ */
 public class SolarSystem 
 {
 	final static int NUM_PLANETS=7, NUM_MAX_STARS=10000;

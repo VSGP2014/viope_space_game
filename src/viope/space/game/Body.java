@@ -107,9 +107,9 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * To write
-	 * @param target
-	 * @return
+	 * Returns the distance of the actual Body from a target Body.
+	 * @param target The Body of which I want to know the distance.
+	 * @return A double that is the distance from the target Body.
 	 */
 	public double getTargetDistance(Body target) {
 		double x = Math.abs(this.getX() - target.getX());
@@ -120,8 +120,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * To write
-	 * @return
+	 * Return the name of the Body.
+	 * @return A string containing the Body's name.
 	 */
 	public String getName() {
 		return this.name;
@@ -129,7 +129,7 @@ public class Body extends Physics
 	
 	/**
 	 * Return the Body mass.
-	 * @return
+	 * @return A double containing the Body's mass.
 	 */
 	public double getMass()
 	{
@@ -138,7 +138,7 @@ public class Body extends Physics
 	
 	/**
 	 * Return the Body position on the X axis.
-	 * @return
+	 * @return An integer containing the Body's position on the X axis.
 	 */
 	public int getX()
 	{
@@ -146,8 +146,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * Return the Body position on the X axis.	
-	 * @return
+	 * Return the Body position on the Y axis.	
+	 * @return An integer containing the Body's position on the Y axis.
 	 */
 	public int getY()
 	{
@@ -155,24 +155,24 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's current X position.
+	 * @param num The new Body's X position.
 	 */
 	public void setX(int num) {
 		this.x = num;
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's current Y position.
+	 * @param num The new Body's Y position.
 	 */
 	public void setY(int num) {
 		this.y = num;
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Return the X axis Body's velocity.
+	 * @return A double containing the X axis Body's velocity.
 	 */
 	public double getXVel()
 	{
@@ -180,8 +180,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's velocity on the X axis.
+	 * @param num The new Body's X axis velocity.
 	 */
 	public void setXVel(double num)
 	{
@@ -189,8 +189,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Return the Y axis Body's velocity.
+	 * @return A double containing the Y axis Body's velocity.
 	 */
 	public double getYVel()
 	{
@@ -198,8 +198,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's velocity on the Y axis.
+	 * @param num The new Body's Y axis velocity.
 	 */
 	public void setYVel(double num)
 	{
@@ -207,8 +207,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Return the X axis Body's accelleration.
+	 * @return A double containing the X axis Body's accelleration.
 	 */
 	public double getXAcc()
 	{
@@ -216,8 +216,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's accelleration on the X axis.
+	 * @param num The new Body's X axis accelleration.
 	 */
 	public void setXAcc(double num)
 	{
@@ -225,8 +225,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @return
+	 * Return the Y axis Body's accelleration.
+	 * @return A double containing the Y axis Body's accelleration.
 	 */
 	public double getYAcc()
 	{
@@ -234,8 +234,8 @@ public class Body extends Physics
 	}
 	
 	/**
-	 * 
-	 * @param num
+	 * Set the Body's accelleration on the Y axis.
+	 * @param num The new Body's Y axis accelleration.
 	 */
 	public void setYAcc(double num)
 	{
