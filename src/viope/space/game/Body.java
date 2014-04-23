@@ -252,6 +252,7 @@ public class Body
 	
 	/**
 	 * Return full informations about the Body.
+	 * @return A string with Body's full informations.
 	 */
 	public String fullString() {
 		return this.toString()+" xVel:"+this.getXVel()+" yVel:"+this.getYVel()+" xAcc:"+this.getXAcc()+" yAcc:"+this.getYAcc()+" Mass:"+this.getMass();  
