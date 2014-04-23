@@ -36,6 +36,7 @@ public class SolarSystem
 	{
 		return planets;
 	}
+	
 	public void createPlanets(Planet planets[])
 	{
 		Planet mercury = null;

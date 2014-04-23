@@ -16,24 +16,24 @@ public class SpaceShip extends Body{
 		this.launched=false;
 		this.max_speed=max_speed;
 		this.speed=0;
+		this.direction=0;
 	}
 	
 	public void launch(float direction) {
 		launched=true;
 		this.direction=direction;
 	}
-	public void setLaunchPos(int x, int y)
-	{
+	
+	public void setLaunchPos(int x, int y) {
 		this.setX(x);
 		this.setY(y);
 	}
+	
 	public void update() {
-		if(this.launched)
-		{
+		if(this.launched) {
 			this.setX(getX()+(int)this.getXVel());
 			this.setY(this.getY()+(int)this.getYVel());
-			if(speed<max_speed&&energy>0)
-			{
+			if(speed < max_speed && energy > 0) {
 				speed++;
 				energy--;
 			}

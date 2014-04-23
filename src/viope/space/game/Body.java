@@ -10,7 +10,7 @@ import java.awt.Graphics;
  * This class should implement methods used by phisical objects
  */
 
-public class Body extends Physics
+public class Body
 {
 	/**
 	 * Meters per pixel ratio
@@ -240,5 +240,20 @@ public class Body extends Physics
 	public void setYAcc(double num)
 	{
 		this.yAcc = num;
+	}
+	
+	/**
+	 * Return a string with informations related to the Body.
+	 * @return A string with the Body's name and coordinates.
+	 */
+	public String toString() {
+		return this.getName()+" ("+this.getX()+","+this.getY()+")";
+	}
+	
+	/**
+	 * Return full informations about the Body.
+	 */
+	public String fullString() {
+		return this.toString()+" xVel:"+this.getXVel()+" yVel:"+this.getYVel()+" xAcc:"+this.getXAcc()+" yAcc:"+this.getYAcc()+" Mass:"+this.getMass();  
 	}
 }

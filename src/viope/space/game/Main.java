@@ -20,12 +20,9 @@ public class Main {
 			int energy = Integer.parseInt(input.nextLine());
 			ship = new SpaceShip("Spaceship", 100, 25, 25, shipColor, energy, 100);
 			System.out.println("Choose the planet you wish to launch from: ");
-			String planetList="";
-			for(int i=0;i<solarSystem.getPlanets().length;i++)
-			{
-				planetList=planetList+(i+1)+". "+solarSystem.getPlanets()[i].getName()+"\n";
-			}
-			System.out.println(planetList);
+			for (int i = 0; i < solarSystem.getPlanets().length; i++)
+				if(solarSystem.getPlanets()[i] != null)
+					System.out.println(i+": "+solarSystem.getPlanets()[i]);
 			int planetChoice=(Integer.parseInt(input.nextLine())-1);
 			ship.setLaunchPos(solarSystem.getPlanets()[planetChoice].getX(), solarSystem.getPlanets()[planetChoice].getY());
 		default:
