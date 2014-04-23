@@ -2,22 +2,20 @@ package viope.space.game;
 
 import java.awt.Color;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Random;
 
 /**
  * @author Margarida & Monica
  * This class should contain all the stuff needed for creating a virtual copy of our solar system.
  */
-public class SolarSystem 
-{
-	final static int NUM_PLANETS=7, NUM_MAX_STARS=10000;
+public class SolarSystem {
+	final static int NUM_PLANETS=7, NUM_MAX_STARS=100, UNIVERSE_DIMENSION = 1000000;
 	static ArrayList<Body> universe = new ArrayList<Body>();
 	static Body sun = new Body("Sun", 1.99 * Math.pow(10, 30), 400, 400, Color.yellow);
 	static Planet planets[] = new Planet[NUM_PLANETS];
 	static Star stars[] = new Star[NUM_MAX_STARS];
 	
-	public SolarSystem()
-	{
+	public SolarSystem() {
 		createPlanets(planets);
 		createStars(stars);
 		
@@ -32,13 +30,12 @@ public class SolarSystem
 		}
 		
 	}
-	public Planet[] getPlanets()
-	{
+	
+	public Planet[] getPlanets() {
 		return planets;
 	}
 	
-	public void createPlanets(Planet planets[])
-	{
+	public void createPlanets(Planet planets[]) {
 		Planet mercury = null;
 		planets[0] = mercury;
 		Planet venus = null;
@@ -55,11 +52,40 @@ public class SolarSystem
 		planets[6] = neptune;
 	}
 	
-	public void createStars(Star stars[])
-	{
+	public void createStars(Star stars[]) {
+		Random randomXY = new Random();
+		int x, y;
+		
 		for (int i = 0; i < stars.length; i++) {
-			Star star = null;
-			stars[i]=star;
+			
+			x = randomXY.nextInt(UNIVERSE_DIMENSION);
+			if(Math.random() < 0.5){
+				x = -x;   //having the universe negative and positive number, we randomly choose one of the two. in this case the number has been randomly set to negative
+			}
+
+			y= randomXY.nextInt(UNIVERSE_DIMENSION);
+			if(Math.random() < 0.5){
+				y = -y;
+			}
+			
+			boolean xyOccupied = false;
+			
+			for (int j = 0; j < planets.length; j++) {
+				if(planets[j].getX() == x && planets[j].getY() == y) {
+					xyOccupied = true; //check if any planet its in the same position of the randomed x and y;
+				}
+			}
+			
+			if(sun.getX() == x && sun.getY() == y){
+				xyOccupied = true;
+			}
+			
+			if(xyOccupied) {
+				--i;   //if the position of the object is already occupied, the next iteration of the while recreate the object;
+			} else {
+				stars[i] = new Star("Star "+(i+1),1,x,y,Color.gray,0);
+			}
+
 		}
 	}
 

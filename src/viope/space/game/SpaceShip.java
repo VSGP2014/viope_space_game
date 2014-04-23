@@ -2,7 +2,7 @@ package viope.space.game;
 
 import java.awt.Color;
 
-public class SpaceShip extends Body{
+public class SpaceShip extends Body {
 
 	private int energy;
 	private boolean launched;
