@@ -32,7 +32,10 @@ public class SolarSystem
 		}
 		
 	}
-	
+	public Planet[] getPlanets()
+	{
+		return planets;
+	}
 	public void createPlanets(Planet planets[])
 	{
 		Planet mercury = null;
