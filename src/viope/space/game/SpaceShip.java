@@ -39,4 +39,19 @@ public class SpaceShip extends Body {
 			}
 		}
 	}
+	public int situation()
+	{
+		//TODO
+		if(this.launched)
+		{		
+			if(energy==0)
+				return 1;  //energy finished
+			if()
+				return 2;  	// planet hit
+			if()
+				return 3; 	//arrived destination	
+			return 0;  		//ok
+		}
+		return -1;		//not launched yet
+	}
 }
