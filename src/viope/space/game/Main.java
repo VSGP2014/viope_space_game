@@ -25,11 +25,20 @@ public class Main {
 				int energy = Integer.parseInt(input.nextLine());
 				ship = new SpaceShip("Spaceship", 100, 25, 25, shipColor, energy, 100);
 				System.out.println("Choose the planet you wish to launch from: ");
-				for (int i = 0; i < solarSystem.getPlanets().length; i++)
-					if(solarSystem.getPlanets()[i] != null)
-						System.out.println(i+": "+solarSystem.getPlanets()[i]);
+				for (int i = 0; i < SolarSystem.planets.length ; i++)
+					if(SolarSystem.planets[i] != null)
+						System.out.println(i+": "+SolarSystem.planets[i]);
 				int planetChoice=(Integer.parseInt(input.nextLine()));
-				ship.setLaunchPos(solarSystem.getPlanets()[planetChoice].getX(), solarSystem.getPlanets()[planetChoice].getY());
+				ship.setLaunchPos(SolarSystem.planets[planetChoice].getX(), SolarSystem.planets[planetChoice].getY());
+				System.out.println("Choose the direction launch ");
+				float dir = Float.parseFloat(input.nextLine()); 
+				int a;
+				ship.launch(dir);
+				while((a=ship.situation())==0)
+				 	ship.update();
+				System.out.println(Costants.res[a]); //print the result
+
+				break;
 			default:
 				System.out.println(" - Uops, wrong choice! -");
 			}
