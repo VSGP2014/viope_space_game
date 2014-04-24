@@ -6,4 +6,5 @@ public class Costants {
 									+	"0) Exit"
 									+   "Else) Loop"
 									+ 	"What do you choose?\t";
+	public static String [] res = {"","Game over ! Energy finished!", "Game over ! Planet hit!","You win!"};
 }
