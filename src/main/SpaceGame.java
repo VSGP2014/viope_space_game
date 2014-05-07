@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 
@@ -25,7 +26,7 @@ public class SpaceGame {
 	public static void main(String[] args) {
 				
 		spaceGUI = new SpaceGUI();
-		
+		Scanner input=new Scanner(System.in);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				JFrame spaceFrame = new JFrame();
@@ -43,6 +44,12 @@ public class SpaceGame {
 		});
 		
 		Game game = new Game();
+		System.out.println("Set the initial velocity for the space ship: ");
+		System.out.println("Velocity on the X-axis: ");
+		BigDecimal xVel = input.nextBigDecimal();
+		System.out.println("Velocity on the Y-axis: ");
+		BigDecimal yVel = input.nextBigDecimal();
+		game.SetInitialVelocity(xVel, yVel);
 		spaceGUI.setGame(game);
 		game.setSpaceGUI(spaceGUI);
 		game.runGame();

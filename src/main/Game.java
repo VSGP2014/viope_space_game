@@ -66,7 +66,10 @@ public class Game {
 			Body spaceship = new Body("Red Dwarf",new BigDecimal("10000000000"),new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("-360000000"), new BigDecimal("-360000000")),Color.red);
 		return spaceship;
 	}
-	
+	public void SetInitialVelocity(BigDecimal xVel, BigDecimal yVel)
+	{
+		spaceship.setVelocity(new Vector(xVel,yVel));
+	}
 	public void runGame(){
 		//Let it run with the universe and check where it is
 		Body[] bodies = universe.getBodies();
