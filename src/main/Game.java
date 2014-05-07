@@ -29,6 +29,8 @@ public class Game {
 		//sun at the centre
 		BigDecimal iv = new BigDecimal(ConstantsSpaceGame.INTERVAL);
 		sun = new Body("Sun",ConstantsUniverse.SOL_MASS,new Vector(BigDecimal.ZERO,BigDecimal.ZERO),new Vector(BigDecimal.ZERO,BigDecimal.ZERO),Color.yellow);
+		
+		//- Planets
 		//mercury 90 degrees
 		Body mercury = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
 		//venus 180 degrees
@@ -44,11 +46,21 @@ public class Game {
 		//uranus -90 degrees
 		Body uranus = new Body("Uranus",ConstantsUniverse.URANUS_MASS,new Vector(new BigDecimal("-2391759765802"),new BigDecimal("1426163340668")),new Vector((new BigDecimal("-3613.13555555556")).multiply(iv),(new BigDecimal("-5925.83194444444")).multiply(iv)), Color.blue);
 		//neptune 0 degrees
-		Body neptune = new Body("Neptune",ConstantsUniverse.NEPTUNE_MASS,new Vector(new BigDecimal("1246757671891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("5225.02638888889")).multiply(iv),(new BigDecimal("1494.01972222222")).multiply(iv)), Color.orange);
+		Body neptune = new Body("Neptune",ConstantsUniverse.NEPTUNE_MASS,new Vector(new BigDecimal("1246757671891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("5225.02638888889")).multiply(iv),(new BigDecimal("1494.01972222222")).multiply(iv)), Color.lightGray);
 		//pluto 90 degrees
 		Body pluto = new Body("Pluto",ConstantsUniverse.PLUTO_MASS,new Vector(new BigDecimal("-5367382317922"),new BigDecimal("2643960334520")),new Vector((new BigDecimal("-2057.39972222222")).multiply(iv),(new BigDecimal("-4243.28388888889")).multiply(iv)), Color.white);
-				
+		
+		//- Moons 
+		// got from (https://solarsystem.nasa.gov/planets/index.cfm) <- took ages to find it...
+		// used also for ConstantsUniverse
+		// Titan, 1221865 km at north of Saturn... no idea of how to get his speed
+		Body titan = new Body("Titan (Saturn moon)",ConstantsUniverse.TITAN_MASS,new Vector(new BigDecimal("-448174651642"),new BigDecimal("1378070993150")),new Vector((new BigDecimal("-5570")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.orange);
+		// Triton, Neptune's main moon at his west (354759m)
+		Body triton = new Body("Triton (Neptune moon)",ConstantsUniverse.TRITON_MASS,new Vector(new BigDecimal("1247112430891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("4389")).multiply(iv)), Color.white);
+		
+		// Do it!
 		universe.add(sun);
+		// Planets
 		universe.add(mercury);
 		universe.add(venus);
 		universe.add(earth);
@@ -58,7 +70,10 @@ public class Game {
 		universe.add(uranus);
 		universe.add(neptune);
 		universe.add(pluto);
-				
+		// Moons
+		universe.add(titan);
+		universe.add(triton);
+
 		return universe;
 	}
 	
