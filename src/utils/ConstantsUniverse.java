@@ -19,10 +19,21 @@ public class ConstantsUniverse {
 	public static BigDecimal URANUS_MASS =  new BigDecimal("86810000000000000000000000");
 	public static BigDecimal NEPTUNE_MASS = new BigDecimal("102430000000000000000000000");
 	public static BigDecimal PLUTO_MASS =   new BigDecimal("13050000000000000000000");
-	//- Moons
-	public static BigDecimal TITAN_MASS =  new BigDecimal("134552523083241000000000");
-	public static BigDecimal TRITON_MASS = new BigDecimal("21394990550895500000000");
-	
+	//- Moons 
+	public static BigDecimal MOON_MASS =     new BigDecimal("73476730924573500000000");
+	public static BigDecimal IO_MASS =     new BigDecimal("89319380000000000000000");
+	public static BigDecimal EUROPA_MASS =     new BigDecimal("47998440000000000000000");
+	public static BigDecimal GANYMEDE_MASS =     new BigDecimal("148190000000000000000000");
+	public static BigDecimal CALLISTO_MASS =     new BigDecimal("107593800000000000000000");
+	public static BigDecimal MIMAS_MASS =     new BigDecimal("37493000000000000000");
+	public static BigDecimal IAPETUS_MASS =     new BigDecimal("1805635000000000000000");
+	public static BigDecimal TETHYS_MASS =     new BigDecimal("617449000000000000000");
+	public static BigDecimal DIONE_MASS =     new BigDecimal("1095452000000000000000");
+	public static BigDecimal RHEA_MASS =     new BigDecimal("2306518000000000000000");
+	public static BigDecimal TITAN_MASS =     new BigDecimal("134520000000000000000000");
+	public static BigDecimal TITANIA_MASS =     new BigDecimal("352700000000000000000");
+	public static BigDecimal TRITON_MASS =     new BigDecimal("21400000000000000000000");
+		
 	// Orbits in m
 	//- Planets
 	public static BigDecimal SOL_ORBIT =        new BigDecimal("0");
@@ -35,9 +46,19 @@ public class ConstantsUniverse {
 	public static BigDecimal URANUS_ORBIT =  	new BigDecimal("2825000000000");
 	public static BigDecimal NEPTUNE_ORBIT = 	new BigDecimal("4500000000000");
 	public static BigDecimal PLUTO_ORBIT =   	new BigDecimal("6000000000000");
-	//- Moons
-	public static BigDecimal TITAN_ORBIT = 		new BigDecimal("7675612020");
-	public static BigDecimal TRITON_ORBIT = 	new BigDecimal("2229016540");
+	//- Moons <- to check
+	public static BigDecimal IO_ORBIT =     new BigDecimal("4217000000");
+	public static BigDecimal EUROPA_ORBIT =     new BigDecimal("670900000");
+	public static BigDecimal GANYMEDE_ORBIT =     new BigDecimal("1070400000");
+	public static BigDecimal CALLISTO_ORBIT =     new BigDecimal("1882700000");
+	public static BigDecimal MIMAS_ORBIT =     new BigDecimal("185536000");
+	public static BigDecimal IAPETUS_ORBIT =     new BigDecimal("3560820000");
+	public static BigDecimal TETHYS_ORBIT =     new BigDecimal("294619000");
+	public static BigDecimal DIONE_ORBIT =     new BigDecimal("377396000");
+	public static BigDecimal RHEA_ORBIT =     new BigDecimal("527108000");
+	public static BigDecimal TITAN_ORBIT =     new BigDecimal("1221870000");
+	public static BigDecimal TITANIA_ORBIT =     new BigDecimal("354759000");
+	public static BigDecimal TRITON_ORBIT =     new BigDecimal("354759000");
 	
 	// Speeds in m/ConstantsSpaceGame.INTERVAL
 	//- Planets
@@ -52,6 +73,16 @@ public class ConstantsUniverse {
 	public static BigDecimal NEPTUNE_SPEED = new BigDecimal("5430").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal PLUTO_SPEED = new BigDecimal("4700").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	//- Moons 
-	public static BigDecimal TITAN_SPEED = new BigDecimal("5570").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
-	public static BigDecimal TRITON_SPEED = new BigDecimal("4389").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal IO_SPEED =     new BigDecimal("17334").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal EUROPA_SPEED =     new BigDecimal("13740").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal GANYMEDE_SPEED =     new BigDecimal("10880").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal CALLISTO_SPEED =     new BigDecimal("8204").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal MIMAS_SPEED =     new BigDecimal("14320").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal IAPETUS_SPEED =    new BigDecimal("19330").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal TETHYS_SPEED =     new BigDecimal("11360").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal DIONE_SPEED =     new BigDecimal("10030").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal RHEA_SPEED =    new BigDecimal("8490").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal TITAN_SPEED =     new BigDecimal("5580").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal TITANIA_SPEED =    new BigDecimal("36500").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
+	public static BigDecimal TRITON_SPEED =     new BigDecimal("4390").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 }

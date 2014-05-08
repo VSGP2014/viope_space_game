@@ -53,11 +53,25 @@ public class Game {
 		//- Moons 
 		// got from (https://solarsystem.nasa.gov/planets/index.cfm) <- took ages to find it...
 		// used also for ConstantsUniverse
-		// Titan, 1221865 km at north of Saturn... no idea of how to get his speed
-		Body titan = new Body("Titan (Saturn moon)",ConstantsUniverse.TITAN_MASS,new Vector(new BigDecimal("-448174651642"),new BigDecimal("1378070993150")),new Vector((new BigDecimal("-5570")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.orange);
-		// Triton, Neptune's main moon at his west (354759m)
-		Body triton = new Body("Triton (Neptune moon)",ConstantsUniverse.TRITON_MASS,new Vector(new BigDecimal("1247112430891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("4389")).multiply(iv)), Color.white);
-		
+		//Earth
+		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,new Vector(new BigDecimal("-150643182238"),new BigDecimal("1923202429")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("1030")).multiply(iv)), Color.gray);
+		//Jupiter
+		Body io = new Body("Io",ConstantsUniverse.IO_MASS,new Vector(new BigDecimal("-694294830665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("17334")).multiply(iv)), Color.gray);
+		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,new Vector(new BigDecimal("-694716630665"),new BigDecimal("376572522954")),new Vector((new BigDecimal("-13740")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
+		Body ganymede = new Body("Ganymede",ConstantsUniverse.GANYMEDE_MASS,new Vector(new BigDecimal("-695787030665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("-10880")).multiply(iv)), Color.gray);
+		Body callisto = new Body("Callisto",ConstantsUniverse.CALLISTO_MASS,new Vector(new BigDecimal("-694716630665"),new BigDecimal("374018722954")),new Vector((new BigDecimal("8204")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
+		//Saturn - commented one has uncorrect datas for position and speed
+		//Body mimas = new Body("Mimas",ConstantsUniverse.MIMAS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
+		//Body iapetus = new Body("Iapetus",ConstantsUniverse.IAPETUS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
+		//Body tethys = new Body("Tethys",ConstantsUniverse.TETHYS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
+		Body dione = new Body("Dione",ConstantsUniverse.DIONE_MASS,new Vector(new BigDecimal("-448552066642"),new BigDecimal("1376849128150")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("10030")).multiply(iv)), Color.gray);
+		//Body rhea = new Body("Rhea",ConstantsUniverse.RHEA_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
+		Body titan = new Body("Titan",ConstantsUniverse.TITAN_MASS,new Vector(new BigDecimal("-448174651642"),new BigDecimal("1378070993150")),new Vector((new BigDecimal("-5570")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.orange);
+		//Uranus
+		Body titania = new Body("Titania",ConstantsUniverse.TITANIA_MASS,new Vector(new BigDecimal("-2391759765802"),new BigDecimal("1425727040668")),new Vector((new BigDecimal("36500")).multiply(iv),(new BigDecimal("-0")).multiply(iv)), Color.gray);
+		//Neptune
+		Body triton = new Body("Triton",ConstantsUniverse.TRITON_MASS,new Vector(new BigDecimal("1247112430891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("4389")).multiply(iv)), Color.white);
+
 		// Do it!
 		universe.add(sun);
 		// Planets
@@ -71,7 +85,14 @@ public class Game {
 		universe.add(neptune);
 		universe.add(pluto);
 		// Moons
+		universe.add(moon);
+		universe.add(io);
+		universe.add(europa);
+		universe.add(ganymede);
+		universe.add(callisto);
+		universe.add(dione);
 		universe.add(titan);
+		universe.add(titania);
 		universe.add(triton);
 
 		return universe;
@@ -81,10 +102,11 @@ public class Game {
 			Body spaceship = new Body("Red Dwarf",new BigDecimal("10000000000"),new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("-360000000"), new BigDecimal("-360000000")),Color.red);
 		return spaceship;
 	}
-	public void SetInitialVelocity(BigDecimal xVel, BigDecimal yVel)
-	{
+	
+	public void SetInitialVelocity(BigDecimal xVel, BigDecimal yVel){
 		spaceship.setVelocity(new Vector(xVel,yVel));
 	}
+	
 	public void runGame(){
 		//Let it run with the universe and check where it is
 		Body[] bodies = universe.getBodies();
