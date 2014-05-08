@@ -26,7 +26,15 @@ public class SpaceGame {
 	public static void main(String[] args) {
 				
 		spaceGUI = new SpaceGUI();
+		// Asking data to user
 		Scanner input=new Scanner(System.in);
+		System.out.println(" - Set the initial velocity for the space ship - ");
+		System.out.print("Velocity on the X-axis: ");
+		BigDecimal xVel = input.nextBigDecimal();
+		System.out.print("Velocity on the Y-axis: ");
+		BigDecimal yVel = input.nextBigDecimal();
+		input.close();
+		// Creating the graphical part - BEHOLD HUMAN
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				JFrame spaceFrame = new JFrame();
@@ -42,13 +50,8 @@ public class SpaceGame {
 				spaceFrame.setVisible(true);
 			}
 		});
-		
+		// Start the game
 		Game game = new Game();
-		System.out.println(" - Set the initial velocity for the space ship - ");
-		System.out.print("Velocity on the X-axis: ");
-		BigDecimal xVel = input.nextBigDecimal();
-		System.out.print("Velocity on the Y-axis: ");
-		BigDecimal yVel = input.nextBigDecimal();
 		game.setInitialVelocity(xVel, yVel);
 		spaceGUI.setGame(game);
 		game.setSpaceGUI(spaceGUI);

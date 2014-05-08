@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class ConstantsUniverse {
 	// General
-	// G = (6,67428 � 0,00067) � 10-11 Nm2 kg-2 ConstantsSpaceGame.INTERVAL-2.
+	// G = (6,67428 +/- 0,00067) * 10-11 Nm2 kg-2 ConstantsSpaceGame.INTERVAL-2.
 	public static BigDecimal G = new BigDecimal("0.0000000000667428").multiply(new BigDecimal(Math.pow(ConstantsSpaceGame.INTERVAL,2)));
 	
 	// Masses in kg
@@ -20,19 +20,19 @@ public class ConstantsUniverse {
 	public static BigDecimal NEPTUNE_MASS = new BigDecimal("102430000000000000000000000");
 	public static BigDecimal PLUTO_MASS =   new BigDecimal("13050000000000000000000");
 	//- Moons 
-	public static BigDecimal MOON_MASS =     new BigDecimal("73476730924573500000000");
-	public static BigDecimal IO_MASS =     new BigDecimal("89319380000000000000000");
-	public static BigDecimal EUROPA_MASS =     new BigDecimal("47998440000000000000000");
-	public static BigDecimal GANYMEDE_MASS =     new BigDecimal("148190000000000000000000");
-	public static BigDecimal CALLISTO_MASS =     new BigDecimal("107593800000000000000000");
-	public static BigDecimal MIMAS_MASS =     new BigDecimal("37493000000000000000");
-	public static BigDecimal IAPETUS_MASS =     new BigDecimal("1805635000000000000000");
-	public static BigDecimal TETHYS_MASS =     new BigDecimal("617449000000000000000");
-	public static BigDecimal DIONE_MASS =     new BigDecimal("1095452000000000000000");
-	public static BigDecimal RHEA_MASS =     new BigDecimal("2306518000000000000000");
-	public static BigDecimal TITAN_MASS =     new BigDecimal("134520000000000000000000");
-	public static BigDecimal TITANIA_MASS =     new BigDecimal("352700000000000000000");
-	public static BigDecimal TRITON_MASS =     new BigDecimal("21400000000000000000000");
+	public static BigDecimal MOON_MASS =		new BigDecimal("73476730924573500000000");
+	public static BigDecimal IO_MASS = 			new BigDecimal("89319380000000000000000");
+	public static BigDecimal EUROPA_MASS = 		new BigDecimal("47998440000000000000000");
+	public static BigDecimal GANYMEDE_MASS = 	new BigDecimal("148190000000000000000000");
+	public static BigDecimal CALLISTO_MASS = 	new BigDecimal("107593800000000000000000");
+	public static BigDecimal MIMAS_MASS = 		new BigDecimal("37493000000000000000");
+	public static BigDecimal IAPETUS_MASS = 	new BigDecimal("1805635000000000000000");
+	public static BigDecimal TETHYS_MASS = 		new BigDecimal("617449000000000000000");
+	public static BigDecimal DIONE_MASS = 		new BigDecimal("1095452000000000000000");
+	public static BigDecimal RHEA_MASS = 		new BigDecimal("2306518000000000000000");
+	public static BigDecimal TITAN_MASS = 		new BigDecimal("134520000000000000000000");
+	public static BigDecimal TITANIA_MASS = 	new BigDecimal("352700000000000000000");
+	public static BigDecimal TRITON_MASS = 		new BigDecimal("21400000000000000000000");
 		
 	// Orbits in m
 	//- Planets
@@ -49,7 +49,7 @@ public class ConstantsUniverse {
 	//- Moons - checked
 	public static BigDecimal MOON_ORBIT =     new BigDecimal("384400000");
 	public static BigDecimal IO_ORBIT =     new BigDecimal("421800000");
-	public static BigDecimal EUROPA_ORBIT =     new BigDecimal(" 671100000");
+	public static BigDecimal EUROPA_ORBIT =     new BigDecimal("671100000");
 	public static BigDecimal GANYMEDE_ORBIT =     new BigDecimal("1070400000");
 	public static BigDecimal CALLISTO_ORBIT =     new BigDecimal("1882700000");
 	public static BigDecimal MIMAS_ORBIT =     new BigDecimal("185536000");
