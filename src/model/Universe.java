@@ -3,6 +3,7 @@ package model;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 import utils.ConstantsSpaceGame;
 import utils.ConstantsUniverse;
@@ -27,7 +28,6 @@ public class Universe {
 	public void setBodies(Body[] bodies){
 		this.bodies = bodies;
 	}
-
 	public void add(Body body){
 		int bl = bodies.length;
 		Body[] nb = new Body[bl + 1];
@@ -37,17 +37,16 @@ public class Universe {
 		nb[bl]=body;
 		bodies = nb;
 	}
-	
 	// Formula of Newton: F = G * (m1*m2) / r2
 	// Direction from self to other, if time interval bigger, we should rotate by .5 alpha 
 	public void move() {
 		Vector[] deltaVelocities = new Vector[bodies.length];
+		Vector[][] symForce = new Vector[bodies.length][bodies.length];// Will use for symmetry purposes.
 		for (int i = 0; i< bodies.length;i++) {
 			Body self = bodies[i];
 			BigDecimal m1 = self.getWeight();
 			Vector netForce = new Vector(BigDecimal.ZERO,BigDecimal.ZERO);
-			for (int j = 0; j < bodies.length;j++){
-				if(i!=j){
+			for (int j = i+1; j < bodies.length;j++){
 					Body other = bodies[j];
 					Vector force = other.getLocation().minus(self.getLocation());
 					BigDecimal r = force.getLength();
@@ -61,11 +60,15 @@ public class Universe {
 						if(rotationAngle.compareTo(new BigDecimal("1"))==1){
 							System.out.println("Universe move rotation angle to big: " + rotationAngle);
 						}**/
+						symForce[i][j] = force;
 						netForce = netForce.add(force);
-					}
-				}
+						}
 			}
-			deltaVelocities[i]= netForce.divide(m1);
+			for(int j=0;j<i;j++){
+				netForce=netForce.minus(symForce[j][i]);
+			}
+			
+			deltaVelocities[i]= netForce.divide(m1);	
 		}
 		for (int i = 0; i< bodies.length;i++) {
 			bodies[i].move(deltaVelocities[i]);
@@ -81,3 +84,6 @@ public class Universe {
 		return s;
 	}
 }
+
+
+
