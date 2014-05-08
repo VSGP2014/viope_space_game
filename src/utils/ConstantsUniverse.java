@@ -46,9 +46,10 @@ public class ConstantsUniverse {
 	public static BigDecimal URANUS_ORBIT =  	new BigDecimal("2825000000000");
 	public static BigDecimal NEPTUNE_ORBIT = 	new BigDecimal("4500000000000");
 	public static BigDecimal PLUTO_ORBIT =   	new BigDecimal("6000000000000");
-	//- Moons <- to check
-	public static BigDecimal IO_ORBIT =     new BigDecimal("4217000000");
-	public static BigDecimal EUROPA_ORBIT =     new BigDecimal("670900000");
+	//- Moons - checked
+	public static BigDecimal MOON_ORBIT =     new BigDecimal("384400000");
+	public static BigDecimal IO_ORBIT =     new BigDecimal("421800000");
+	public static BigDecimal EUROPA_ORBIT =     new BigDecimal(" 671100000");
 	public static BigDecimal GANYMEDE_ORBIT =     new BigDecimal("1070400000");
 	public static BigDecimal CALLISTO_ORBIT =     new BigDecimal("1882700000");
 	public static BigDecimal MIMAS_ORBIT =     new BigDecimal("185536000");
@@ -57,7 +58,7 @@ public class ConstantsUniverse {
 	public static BigDecimal DIONE_ORBIT =     new BigDecimal("377396000");
 	public static BigDecimal RHEA_ORBIT =     new BigDecimal("527108000");
 	public static BigDecimal TITAN_ORBIT =     new BigDecimal("1221870000");
-	public static BigDecimal TITANIA_ORBIT =     new BigDecimal("354759000");
+	public static BigDecimal TITANIA_ORBIT =     new BigDecimal("436300000");
 	public static BigDecimal TRITON_ORBIT =     new BigDecimal("354759000");
 	
 	// Speeds in m/ConstantsSpaceGame.INTERVAL
