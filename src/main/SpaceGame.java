@@ -44,14 +44,12 @@ public class SpaceGame {
 		});
 		
 		Game game = new Game();
-		/*
-		System.out.println("Set the initial velocity for the space ship: ");
-		System.out.println("Velocity on the X-axis: ");
+		System.out.println(" - Set the initial velocity for the space ship - ");
+		System.out.print("Velocity on the X-axis: ");
 		BigDecimal xVel = input.nextBigDecimal();
-		System.out.println("Velocity on the Y-axis: ");
+		System.out.print("Velocity on the Y-axis: ");
 		BigDecimal yVel = input.nextBigDecimal();
-		game.SetInitialVelocity(xVel, yVel);
-		*/
+		game.setInitialVelocity(xVel, yVel);
 		spaceGUI.setGame(game);
 		game.setSpaceGUI(spaceGUI);
 		game.runGame();

@@ -103,7 +103,7 @@ public class Game {
 		return spaceship;
 	}
 	
-	public void SetInitialVelocity(BigDecimal xVel, BigDecimal yVel){
+	public void setInitialVelocity(BigDecimal xVel, BigDecimal yVel){
 		spaceship.setVelocity(new Vector(xVel,yVel));
 	}
 	
