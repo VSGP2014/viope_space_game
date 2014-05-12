@@ -56,7 +56,7 @@ public class Game {
 		//Earth
 		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,new Vector(new BigDecimal("-150643182238"),new BigDecimal("1923202429")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("1030")).multiply(iv)), Color.gray);
 		//Jupiter
-		Body io = new Body("Io",ConstantsUniverse.IO_MASS,new Vector(new BigDecimal("-694294830665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("17334")).multiply(iv)), Color.green);
+		Body io = new Body("Io",ConstantsUniverse.IO_MASS,new Vector(new BigDecimal("-694294830665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("14334")).multiply(iv)), Color.green);
 		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,new Vector(new BigDecimal("-694716630665"),new BigDecimal("376572522954")),new Vector((new BigDecimal("-13740")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
 		Body ganymede = new Body("Ganymede",ConstantsUniverse.GANYMEDE_MASS,new Vector(new BigDecimal("-695787030665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("-10880")).multiply(iv)), Color.gray);
 		Body callisto = new Body("Callisto",ConstantsUniverse.CALLISTO_MASS,new Vector(new BigDecimal("-694716630665"),new BigDecimal("374018722954")),new Vector((new BigDecimal("8204")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
@@ -85,6 +85,7 @@ public class Game {
 		universe.add(neptune);
 		universe.add(pluto);
 		// Moons
+		
 		universe.add(moon);
 		universe.add(io);
 		universe.add(europa);
@@ -94,7 +95,8 @@ public class Game {
 		universe.add(titan);
 		universe.add(titania);
 		universe.add(triton);
-
+		
+		
 		return universe;
 	}
 	
