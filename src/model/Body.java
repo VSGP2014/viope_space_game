@@ -8,13 +8,15 @@ import utils.Vector;
 public class Body {
 	private String name;
 	private BigDecimal weight; // Weight in kg
+	private int size;
 	private Vector location; // in m, m, m
 	private Vector velocity; //in m, m, m
 	private Color color;
 	
-	public Body(String name, BigDecimal weight, Vector location,  Vector velocity, Color color) {
+	public Body(String name, BigDecimal weight, int size, Vector location,  Vector velocity, Color color) {
 		this.name = name;
 		this.weight = weight;
+		this.size = size;
 		this.location = location;
 		this.velocity = velocity;
 		this.color = color;
@@ -34,6 +36,14 @@ public class Body {
 
 	public void setWeight(BigDecimal weight) {
 		this.weight = weight;
+	}
+	
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
 	}
 
 	public Vector getLocation(){
