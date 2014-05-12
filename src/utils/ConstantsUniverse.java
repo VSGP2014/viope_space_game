@@ -33,6 +33,35 @@ public class ConstantsUniverse {
 	public static BigDecimal TITAN_MASS = 		new BigDecimal("134520000000000000000000");
 	public static BigDecimal TITANIA_MASS = 	new BigDecimal("352700000000000000000");
 	public static BigDecimal TRITON_MASS = 		new BigDecimal("21400000000000000000000");
+	
+	
+	// Size - in the comments is the mean radius
+	//- Planets
+	public static int SOL_SIZE = 40; //695508 km
+	public static int MERCURY_SIZE = 11; //2439 km
+	public static int VENUS_SIZE = 18; //6051 km
+	public static int EARTH_SIZE = 21; //6371 km
+	public static int MARS_SIZE = 14; //3389 km
+	public static int JUPITER_SIZE = 30; //69911 km
+	public static int SATURN_SIZE = 28; //58232 km
+	public static int URANUS_SIZE = 26; //25362 km
+	public static int NEPTUNE_SIZE = 24; //24622 km
+	public static int PLUTO_SIZE =  7; //1184 km 
+	//- Moons
+	public static int MOON_SIZE =  9; //1737 km
+	public static int IO_SIZE = 9; //1821 km
+	public static int EUROPA_SIZE =  8; //1560 km
+	public static int GANYMEDE_SIZE = 12; //2634 km
+	public static int CALLISTO_SIZE = 11; //2410 km
+	public static int MIMAS_SIZE = 1; //198 km
+	public static int IAPETUS_SIZE = 5;	//735 km
+	public static int TETHYS_SIZE = 4; // 531 km
+	public static int DIONE_SIZE = 4; //561 km
+	public static int RHEA_SIZE = 5; //764 km
+	public static int TITANIA_SIZE = 5; //788 km
+	public static int TITAN_SIZE =  12; //2576 km
+	public static int TRITON_SIZE = 8; //1353 km
+	
 		
 	// Orbits in m
 	//- Planets
