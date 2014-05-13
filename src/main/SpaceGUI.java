@@ -44,7 +44,8 @@ public class SpaceGUI extends JPanel {
 			y = screenSize - (((((body.getLocation().getY()).divide(ConstantsUniverse.PLUTO_ORBIT,ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND)).doubleValue())*screenSize + screenSize)/2.0+50.0);
 			/*
 			int r = body.getSize();
-			g.fillOval((int)x,(int)y,r,r);
+			int d = (int)(r/2.0);
+			g.fillOval((int)x-d,(int)y-d,r,r);
 			*/
 			g.fillOval((int)x,(int)y,10,10);
 		}
