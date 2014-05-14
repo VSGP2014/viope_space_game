@@ -30,7 +30,8 @@ public class SpaceGUI extends JPanel {
 	 */
 	
 	public SpaceGUI(){
-		setBackground(new Color(0, 51, 102));
+		//setBackground(new Color(0, 51, 102));
+		setBackground(new Color(0, 0, 0));
 		setLayout(null);	
 	}
 	
@@ -42,12 +43,12 @@ public class SpaceGUI extends JPanel {
 			g.setColor(body.getColor());
 			x = ((((body.getLocation().getX()).divide(ConstantsUniverse.PLUTO_ORBIT,ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND)).doubleValue())*screenSize + screenSize)/2.0+250.0;
 			y = screenSize - (((((body.getLocation().getY()).divide(ConstantsUniverse.PLUTO_ORBIT,ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND)).doubleValue())*screenSize + screenSize)/2.0+50.0);
-			/*
+			///*
 			int r = body.getSize();
 			int d = (int)(r/2.0);
 			g.fillOval((int)x-d,(int)y-d,r,r);
-			*/
-			g.fillOval((int)x,(int)y,10,10);
+			//*/
+			//g.fillOval((int)x,(int)y,10,10);
 		}
 	}
 

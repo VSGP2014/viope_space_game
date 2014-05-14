@@ -54,7 +54,7 @@ public class Game {
 		// got from (https://solarsystem.nasa.gov/planets/index.cfm) <- took ages to find it...
 		// used also for ConstantsUniverse
 		//Earth
-		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,ConstantsUniverse.MOON_SIZE,new Vector(new BigDecimal("-150643182238"),new BigDecimal("1923202429")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("1030")).multiply(iv)), Color.gray);
+		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,ConstantsUniverse.MOON_SIZE,earth.getLocation().add(new Vector(ConstantsUniverse.MOON_ORBIT, BigDecimal.ZERO)),earth.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.MOON_SPEED)), Color.gray);
 		//Jupiter
 		Body io = new Body("Io",ConstantsUniverse.IO_MASS,ConstantsUniverse.IO_SIZE,new Vector(new BigDecimal("-694294830665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("14334")).multiply(iv)), Color.green);
 		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,ConstantsUniverse.EUROPA_SIZE,new Vector(new BigDecimal("-694716630665"),new BigDecimal("376572522954")),new Vector((new BigDecimal("-13740")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);

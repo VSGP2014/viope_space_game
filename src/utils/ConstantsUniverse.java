@@ -102,7 +102,8 @@ public class ConstantsUniverse {
 	public static BigDecimal URANUS_SPEED = new BigDecimal("6810").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal NEPTUNE_SPEED = new BigDecimal("5430").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal PLUTO_SPEED = new BigDecimal("4700").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
-	//- Moons 
+	//- Moons
+	public static BigDecimal MOON_SPEED =     new BigDecimal("1022").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal IO_SPEED =     new BigDecimal("17334").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal EUROPA_SPEED =     new BigDecimal("13740").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
 	public static BigDecimal GANYMEDE_SPEED =     new BigDecimal("10880").multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL));
