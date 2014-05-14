@@ -76,6 +76,13 @@ public class Vector {
 		}
 	}
 	
+	public boolean equals(Object o){
+		if (o instanceof Vector)
+			return x.equals(((Vector) o).x) && y.equals(((Vector) o).y);
+		else
+			return false;
+	}
+	
 	public String toString(){
 		return "" + x.toBigInteger() + ", " + y.toBigInteger();
 	}
