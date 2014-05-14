@@ -56,22 +56,17 @@ public class Game {
 		//Earth
 		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,ConstantsUniverse.MOON_SIZE,earth.getLocation().add(new Vector(ConstantsUniverse.MOON_ORBIT, BigDecimal.ZERO)),earth.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.MOON_SPEED)), Color.gray);
 		//Jupiter
-		Body io = new Body("Io",ConstantsUniverse.IO_MASS,ConstantsUniverse.IO_SIZE,new Vector(new BigDecimal("-694294830665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("14334")).multiply(iv)), Color.green);
-		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,ConstantsUniverse.EUROPA_SIZE,new Vector(new BigDecimal("-694716630665"),new BigDecimal("376572522954")),new Vector((new BigDecimal("-13740")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
-		Body ganymede = new Body("Ganymede",ConstantsUniverse.GANYMEDE_MASS,ConstantsUniverse.GANYMEDE_SIZE,new Vector(new BigDecimal("-695787030665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("-10880")).multiply(iv)), Color.gray);
-		Body callisto = new Body("Callisto",ConstantsUniverse.CALLISTO_MASS,ConstantsUniverse.CALLISTO_SIZE,new Vector(new BigDecimal("-694716630665"),new BigDecimal("374018722954")),new Vector((new BigDecimal("8204")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.gray);
-
-		//Saturn - commented one has uncorrect datas for position and speed
-		//Body mimas = new Body("Mimas",ConstantsUniverse.MIMAS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
-		//Body iapetus = new Body("Iapetus",ConstantsUniverse.IAPETUS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
-		//Body tethys = new Body("Tethys",ConstantsUniverse.TETHYS_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
-		Body dione = new Body("Dione",ConstantsUniverse.DIONE_MASS,ConstantsUniverse.DIONE_SIZE,new Vector(new BigDecimal("-448552066642"),new BigDecimal("1376849128150")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("10030")).multiply(iv)), Color.gray);
-		//Body rhea = new Body("Rhea",ConstantsUniverse.RHEA_MASS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
-		Body titan = new Body("Titan",ConstantsUniverse.TITAN_MASS,ConstantsUniverse.TITAN_SIZE,new Vector(new BigDecimal("-448174651642"),new BigDecimal("1378070993150")),new Vector((new BigDecimal("-5570")).multiply(iv),(new BigDecimal("0")).multiply(iv)), Color.orange);
+		Body io = new Body("Io",ConstantsUniverse.IO_MASS,ConstantsUniverse.IO_SIZE,jupiter.getLocation().add(new Vector(ConstantsUniverse.IO_ORBIT,BigDecimal.ZERO)),jupiter.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.IO_SPEED)), Color.gray);
+		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,ConstantsUniverse.EUROPA_SIZE,jupiter.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.EUROPA_ORBIT)),jupiter.getVelocity().add(new Vector(ConstantsUniverse.EUROPA_SPEED.negate(),BigDecimal.ZERO)), Color.gray);
+		Body ganymede = new Body("Ganymede",ConstantsUniverse.GANYMEDE_MASS,ConstantsUniverse.GANYMEDE_SIZE,jupiter.getLocation().add(new Vector(ConstantsUniverse.GANYMEDE_ORBIT.negate(),BigDecimal.ZERO)),jupiter.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.GANYMEDE_SPEED.negate())), Color.gray);
+		Body callisto = new Body("Callisto",ConstantsUniverse.CALLISTO_MASS,ConstantsUniverse.CALLISTO_SIZE,jupiter.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.CALLISTO_ORBIT.negate())),jupiter.getVelocity().add(new Vector(ConstantsUniverse.CALLISTO_SPEED,BigDecimal.ZERO)), Color.gray);
+		//Saturn
+		Body dione = new Body("Dione",ConstantsUniverse.DIONE_MASS,ConstantsUniverse.DIONE_SIZE,saturn.getLocation().add(new Vector(ConstantsUniverse.DIONE_ORBIT.negate(),BigDecimal.ZERO)),saturn.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.DIONE_SPEED.negate())), Color.gray);
+		Body titan = new Body("Titan",ConstantsUniverse.TITAN_MASS,ConstantsUniverse.TITAN_SIZE,saturn.getLocation().add(new Vector(ConstantsUniverse.TITAN_ORBIT,BigDecimal.ZERO)),saturn.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TITAN_SPEED)), Color.orange);
 		//Uranus
-		Body titania = new Body("Titania",ConstantsUniverse.TITANIA_MASS,ConstantsUniverse.TITANIA_SIZE,new Vector(new BigDecimal("-2391759765802"),new BigDecimal("1425727040668")),new Vector((new BigDecimal("36500")).multiply(iv),(new BigDecimal("-0")).multiply(iv)), Color.gray);
+		Body titania = new Body("Titania",ConstantsUniverse.TITANIA_MASS,ConstantsUniverse.TITANIA_SIZE,uranus.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TITANIA_ORBIT)),uranus.getVelocity().add(new Vector(ConstantsUniverse.TITAN_SPEED.negate(),BigDecimal.ZERO)), Color.gray);
 		//Neptune
-		Body triton = new Body("Triton",ConstantsUniverse.TRITON_MASS,ConstantsUniverse.TRITON_SIZE,new Vector(new BigDecimal("1247112430891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("0")).multiply(iv),(new BigDecimal("4389")).multiply(iv)), Color.white);
+		Body triton = new Body("Triton",ConstantsUniverse.TRITON_MASS,ConstantsUniverse.TRITON_SIZE,neptune.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TRITON_ORBIT.negate())),neptune.getVelocity().add(new Vector(ConstantsUniverse.TRITON_SPEED,BigDecimal.ZERO)), Color.white);
 
 		// Do it!
 		universe.add(sun);
