@@ -103,6 +103,17 @@ public class BodyTest {
 		BigDecimal test = ConstantsUniverse.MARS_MASS;
 		assertEquals(test,body.getWeight());
 	}
+	
+	@Test
+	public void testWeightRandomSeed(){
+		Random random = new Random(400);
+		BigDecimal n1= new BigDecimal(random.nextInt(600));
+		BigDecimal test = n1;
+		body.setWeight(n1);
+		assertEquals(test,body.getWeight());
+		n1 = new BigDecimal(random.nextInt(600));
+		assertFalse(n1==body.getWeight());
+	}
 
 	@Test
 	public void testGetSize() {
