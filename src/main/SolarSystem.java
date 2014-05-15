@@ -8,16 +8,24 @@ import utils.ConstantsSpaceGame;
 import utils.ConstantsUniverse;
 import utils.Vector;
 
+/**
+ * A place-holder containing the main planets of the Solar System.
+ * @see Universe
+ */
 
 public class SolarSystem {
 	
+	/**
+	 * The array containing the Solar System planets.
+	 */
 	public static Body[] body = new Body[19];
-	public static Body temp;
 	
+	/**
+	 * Creates in the memory the planets of the Solar System.
+	 */
 	public static void populate(){
 	BigDecimal iv = new BigDecimal(ConstantsSpaceGame.INTERVAL);	
-	temp = new Body("Sun",ConstantsUniverse.SOL_MASS,ConstantsUniverse.SOL_SIZE,new Vector(BigDecimal.ZERO,BigDecimal.ZERO),new Vector(BigDecimal.ZERO,BigDecimal.ZERO),Color.yellow);
-	body[0] = temp;
+	body[0] = new Body("Sun",ConstantsUniverse.SOL_MASS,ConstantsUniverse.SOL_SIZE,new Vector(BigDecimal.ZERO,BigDecimal.ZERO),new Vector(BigDecimal.ZERO,BigDecimal.ZERO),Color.yellow);
 	body[1] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray); 
 	body[2] = new Body("Venus",ConstantsUniverse.VENUS_MASS,ConstantsUniverse.VENUS_SIZE,new Vector(new BigDecimal("99354743695"),new BigDecimal("41216438530")),new Vector((new BigDecimal("-13410.1941666667")).multiply(iv),(new BigDecimal("32504.2688888889")).multiply(iv)), Color.yellow);
 	body[3] = new Body("Earth",ConstantsUniverse.EARTH_MASS,ConstantsUniverse.EARTH_SIZE,new Vector(new BigDecimal("-150642797838"),new BigDecimal("1923202429")),new Vector((new BigDecimal("-276.230277777778")).multiply(iv),(new BigDecimal("-29675.1219444444")).multiply(iv)), Color.cyan);
@@ -57,6 +65,10 @@ public class SolarSystem {
 	body[18] = new Body("Triton",ConstantsUniverse.TRITON_MASS,ConstantsUniverse.TRITON_SIZE,neptune.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TRITON_ORBIT.negate())),neptune.getVelocity().add(new Vector(ConstantsUniverse.TRITON_SPEED,BigDecimal.ZERO)), Color.white);
 	}
 	
+	/**
+	 * Allows to access to the SolarSystem planets array.
+	 * @return The reference to the body array of the Solar System.
+	 */
 	public static Body[] getBodies() {
 		return body;
 	}
