@@ -25,74 +25,8 @@ public class Game {
 	
 	public Universe buildUniverse(){
 		Universe universe = new Universe();
-		//Building the universe
-		//sun at the centre
-		BigDecimal iv = new BigDecimal(ConstantsSpaceGame.INTERVAL);
-		sun = new Body("Sun",ConstantsUniverse.SOL_MASS,ConstantsUniverse.SOL_SIZE,new Vector(BigDecimal.ZERO,BigDecimal.ZERO),new Vector(BigDecimal.ZERO,BigDecimal.ZERO),Color.yellow);
-		
-		//- Planets
-		//mercury 90 degrees
-		Body mercury = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(iv),(new BigDecimal("-35094.635")).multiply(iv)), Color.gray);
-		//venus 180 degrees
-		Body venus = new Body("Venus",ConstantsUniverse.VENUS_MASS,ConstantsUniverse.VENUS_SIZE,new Vector(new BigDecimal("99354743695"),new BigDecimal("41216438530")),new Vector((new BigDecimal("-13410.1941666667")).multiply(iv),(new BigDecimal("32504.2688888889")).multiply(iv)), Color.yellow);
-		//earth -90 degrees
-		Body earth = new Body("Earth",ConstantsUniverse.EARTH_MASS,ConstantsUniverse.EARTH_SIZE,new Vector(new BigDecimal("-150642797838"),new BigDecimal("1923202429")),new Vector((new BigDecimal("-276.230277777778")).multiply(iv),(new BigDecimal("-29675.1219444444")).multiply(iv)), Color.cyan);
-		//mars 0 degrees
-		Body mars = new Body("Mars",ConstantsUniverse.MARS_MASS,ConstantsUniverse.MARS_SIZE,new Vector(new BigDecimal("153664144694"),new BigDecimal("167967118516")),new Vector((new BigDecimal("-17838.9758333333")).multiply(iv),(new BigDecimal("16225.2333333333")).multiply(iv)), Color.magenta);
-		//jupiter 90 degrees
-		Body jupiter = new Body("Jupiter",ConstantsUniverse.JUPITER_MASS,ConstantsUniverse.JUPITER_SIZE,new Vector(new BigDecimal("-694716630665"),new BigDecimal("375901422954")),new Vector((new BigDecimal("-6308.06138888889")).multiply(iv),(new BigDecimal("-11374.4652777778")).multiply(iv)), Color.orange);
-		//saturn 180 degrees
-		Body saturn= new Body("Saturn",ConstantsUniverse.SATURN_MASS,ConstantsUniverse.SATURN_SIZE,new Vector(new BigDecimal("-448174651642"),new BigDecimal("1376849128150")),new Vector((new BigDecimal("-9093.19138888889")).multiply(iv),(new BigDecimal("-3087.7525")).multiply(iv)), Color.yellow);
-		//uranus -90 degrees
-		Body uranus = new Body("Uranus",ConstantsUniverse.URANUS_MASS,ConstantsUniverse.URANUS_SIZE,new Vector(new BigDecimal("-2391759765802"),new BigDecimal("1426163340668")),new Vector((new BigDecimal("-3613.13555555556")).multiply(iv),(new BigDecimal("-5925.83194444444")).multiply(iv)), Color.blue);
-		//neptune 0 degrees
-		Body neptune = new Body("Neptune",ConstantsUniverse.NEPTUNE_MASS,ConstantsUniverse.NEPTUNE_SIZE,new Vector(new BigDecimal("1246757671891"),new BigDecimal("-4311648093455")),new Vector((new BigDecimal("5225.02638888889")).multiply(iv),(new BigDecimal("1494.01972222222")).multiply(iv)), Color.lightGray);
-		//pluto 90 degrees
-		Body pluto = new Body("Pluto",ConstantsUniverse.PLUTO_MASS,ConstantsUniverse.PLUTO_SIZE,new Vector(new BigDecimal("-5367382317922"),new BigDecimal("2643960334520")),new Vector((new BigDecimal("-2057.39972222222")).multiply(iv),(new BigDecimal("-4243.28388888889")).multiply(iv)), Color.white);
-		
-		//- Moons 
-		// got from (https://solarsystem.nasa.gov/planets/index.cfm) <- took ages to find it...
-		// used also for ConstantsUniverse
-		//Earth
-		Body moon = new Body("Moon",ConstantsUniverse.MOON_MASS,ConstantsUniverse.MOON_SIZE,earth.getLocation().add(new Vector(ConstantsUniverse.MOON_ORBIT, BigDecimal.ZERO)),earth.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.MOON_SPEED)), Color.gray);
-		//Jupiter
-		Body io = new Body("Io",ConstantsUniverse.IO_MASS,ConstantsUniverse.IO_SIZE,jupiter.getLocation().add(new Vector(ConstantsUniverse.IO_ORBIT,BigDecimal.ZERO)),jupiter.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.IO_SPEED)), Color.gray);
-		Body europa = new Body("Europa",ConstantsUniverse.EUROPA_MASS,ConstantsUniverse.EUROPA_SIZE,jupiter.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.EUROPA_ORBIT)),jupiter.getVelocity().add(new Vector(ConstantsUniverse.EUROPA_SPEED.negate(),BigDecimal.ZERO)), Color.gray);
-		Body ganymede = new Body("Ganymede",ConstantsUniverse.GANYMEDE_MASS,ConstantsUniverse.GANYMEDE_SIZE,jupiter.getLocation().add(new Vector(ConstantsUniverse.GANYMEDE_ORBIT.negate(),BigDecimal.ZERO)),jupiter.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.GANYMEDE_SPEED.negate())), Color.gray);
-		Body callisto = new Body("Callisto",ConstantsUniverse.CALLISTO_MASS,ConstantsUniverse.CALLISTO_SIZE,jupiter.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.CALLISTO_ORBIT.negate())),jupiter.getVelocity().add(new Vector(ConstantsUniverse.CALLISTO_SPEED,BigDecimal.ZERO)), Color.gray);
-		//Saturn
-		Body dione = new Body("Dione",ConstantsUniverse.DIONE_MASS,ConstantsUniverse.DIONE_SIZE,saturn.getLocation().add(new Vector(ConstantsUniverse.DIONE_ORBIT.negate(),BigDecimal.ZERO)),saturn.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.DIONE_SPEED.negate())), Color.gray);
-		Body titan = new Body("Titan",ConstantsUniverse.TITAN_MASS,ConstantsUniverse.TITAN_SIZE,saturn.getLocation().add(new Vector(ConstantsUniverse.TITAN_ORBIT,BigDecimal.ZERO)),saturn.getVelocity().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TITAN_SPEED)), Color.orange);
-		//Uranus
-		Body titania = new Body("Titania",ConstantsUniverse.TITANIA_MASS,ConstantsUniverse.TITANIA_SIZE,uranus.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TITANIA_ORBIT)),uranus.getVelocity().add(new Vector(ConstantsUniverse.TITAN_SPEED.negate(),BigDecimal.ZERO)), Color.gray);
-		//Neptune
-		Body triton = new Body("Triton",ConstantsUniverse.TRITON_MASS,ConstantsUniverse.TRITON_SIZE,neptune.getLocation().add(new Vector(BigDecimal.ZERO,ConstantsUniverse.TRITON_ORBIT.negate())),neptune.getVelocity().add(new Vector(ConstantsUniverse.TRITON_SPEED,BigDecimal.ZERO)), Color.white);
-
-		// Do it!
-		universe.add(sun);
-		// Planets
-		universe.add(mercury);
-		universe.add(venus);
-		universe.add(earth);
-		universe.add(mars);
-		universe.add(jupiter);
-		universe.add(saturn);
-		universe.add(uranus);
-		universe.add(neptune);
-		universe.add(pluto);
-		// Moons
-		
-		universe.add(moon);
-		universe.add(io);
-		universe.add(europa);
-		universe.add(ganymede);
-		universe.add(callisto);
-		universe.add(dione);
-		universe.add(titan);
-		universe.add(titania);
-		universe.add(triton);
-		
-		
+		SolarSystem.populate();
+		universe.setBodies(SolarSystem.getBodies());
 		return universe;
 	}
 	
