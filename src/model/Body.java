@@ -6,6 +6,8 @@ import utils.Vector;
 
 /**
  * The physical rappresentation of a body with mass and speed.
+ * @see {@link BigDecimal}
+ * @see Vector
  */
 public class Body {
 	private String name;
