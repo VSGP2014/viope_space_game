@@ -97,4 +97,12 @@ public class BodyTest {
 		BigDecimal num2 = body.getLocation().getDistance(other.getLocation()); 
 		assertEquals(num,num2);
 	}
+	
+	@Test
+	public void testStringToString(){
+	String derp = "" + "test" + ", location: " + new Vector(new BigDecimal ("123"), new BigDecimal("123")).toString()+ ", speed: "+new Vector(new BigDecimal ("123"), new BigDecimal("123")).toString();
+	body.toString();
+	assertEquals(derp, body.toString());
+	}
+	
 }
