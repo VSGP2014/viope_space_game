@@ -1,9 +1,13 @@
 package model;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
+
 import java.math.BigDecimal;
+import java.util.Random;
 import java.awt.Color;
+
 import model.Body;
 import utils.*;
 
@@ -12,7 +16,7 @@ public class BodyTest {
 	Body body= new Body ("test",new BigDecimal("123"), 123, new Vector(new BigDecimal ("123"), new BigDecimal("123")), new Vector(new BigDecimal ("123"), new BigDecimal("123")), Color.red);
 	
 	@Test
-	public void testGetLocation() {
+	public void testLocation() {
 		Vector test1 = new Vector(new BigDecimal("123"),new BigDecimal("123"));
 		body.setLocation(new Vector(new BigDecimal("123"),new BigDecimal("123")));
 		assertEquals(test1.getX(),body.getLocation().getX());
@@ -21,7 +25,30 @@ public class BodyTest {
 	}
 	
 	@Test
-	public void testMARSGetLocation() {
+	public void testLocationRandomSeed(){
+		boolean ok;
+		Random random = new Random(400);
+		int n1 = random.nextInt(500);
+		int n2 = random.nextInt(500);
+		while(n1==n2){
+			n1=random.nextInt(500);
+		}
+		Vector test1 = new Vector(new BigDecimal(n1),new BigDecimal(n2));
+		body.setLocation(new Vector(new BigDecimal(n1), new BigDecimal(n2)));
+		assertEquals(test1.getX(),body.getLocation().getX());
+		assertEquals(test1.getY(),body.getLocation().getY());
+		test1 = new Vector(new BigDecimal(n2),new BigDecimal(n1));
+		if(test1==body.getLocation()){
+			ok = true;
+		}
+		else{
+			ok = false;
+		}
+		assertFalse(ok);
+	}
+	
+	@Test
+	public void testMARSLocation() {
 		Vector test1 = new Vector(new BigDecimal("153664144694"),new BigDecimal("167967118516"));
 		body.setLocation(new Vector(new BigDecimal("153664144694"),new BigDecimal("167967118516")));
 		assertEquals(test1.getX(),body.getLocation().getX());
@@ -29,7 +56,7 @@ public class BodyTest {
 	}
 	
 	@Test
-	public void testGetColor(){
+	public void testColor(){
 		Color nikke = Color.pink;
 		body.setColor(Color.pink);
 		assertEquals(nikke,body.getColor());
@@ -41,6 +68,29 @@ public class BodyTest {
 		body.setVelocity(new Vector(new BigDecimal("696969"), new BigDecimal("20202")));
 		assertEquals(testspeed.getX(),body.getVelocity().getX());
 		assertEquals(testspeed.getY(),body.getVelocity().getY());
+	}
+	
+	@Test
+	public void testVelocityRandomSeed(){
+		Random random = new Random(400);
+		boolean ok;
+		int n1 = random.nextInt(600);
+		int n2 = random.nextInt(600);
+		while(n1==n2){
+			n1=random.nextInt(600);
+		}
+		Vector test = new Vector(new BigDecimal(n1),new BigDecimal(n2));
+		body.setVelocity(new Vector(new BigDecimal(n1),new BigDecimal(n2)));
+		assertEquals(test.getX(),body.getVelocity().getX());
+		assertEquals(test.getY(),body.getVelocity().getY());
+		body.setVelocity(new Vector(new BigDecimal(n2),new BigDecimal(n1)));
+		if(test==body.getVelocity()){
+			ok=true;
+		}
+		else{
+			ok=false;
+		}
+		assertFalse(ok);
 	}
 	
 	@Test
