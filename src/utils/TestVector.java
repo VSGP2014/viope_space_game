@@ -1,6 +1,7 @@
 package utils;
-
+import java.util.Random;
 import static org.junit.Assert.*;
+
 
 import java.math.BigDecimal;
 
@@ -17,7 +18,7 @@ public class TestVector {
 	
 	@Test
 	public void isNotNull(){
-		assertNotEquals(vector, null);
+		//assertNotEquals(vector, null);
 	}
 	
 	@Test
@@ -28,69 +29,191 @@ public class TestVector {
 	
 	@Test
 	public void isCorrectGetX(){
-		assertTrue(vector.getX().equals(BigDecimal.ONE));
+		BigDecimal a ;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			a = new BigDecimal(b.nextInt(2000000000));
+			vector.setX(a);
+			if(vector.getX().equals(a))
+				j++;
+		}
+		assertTrue(j==c);
 	}
 	
 	@Test
 	public void isCorrectGetY(){
-		assertTrue(vector.getY().equals(BigDecimal.ONE));
+		BigDecimal a ;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			a = new BigDecimal(b.nextInt(2000000000));
+			vector.setY(a);
+			if(vector.getY().equals(a))
+				j++;
+		}
+		assertTrue(j==c);
 	}
 	
 	@Test
 	public void isCorrectSetX(){
-		vector.setX(BigDecimal.TEN);
-		assertTrue(vector.getX().equals(BigDecimal.TEN));
+		BigDecimal a ;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			a = new BigDecimal(b.nextInt(2000000000));
+			vector.setX(a);
+			if(vector.getX().equals(a))
+				j++;
+		}
+		assertTrue(j==c);
 	}
 	
 	@Test
 	public void isCorrectSetY(){
-		vector.setY(BigDecimal.TEN);
-		assertTrue(vector.getY().equals(BigDecimal.TEN));
+		BigDecimal a ;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			a = new BigDecimal(b.nextInt(2000000000));
+			vector.setY(a);
+			if(vector.getY().equals(a))
+				j++;
+		}
+		assertTrue(j==c);
 	}
 	
 	@Test
 	public void isCorrectTimes(){
-		Vector test = vector.times(BigDecimal.TEN);
-		Vector expected = new Vector(BigDecimal.TEN,BigDecimal.TEN);
-		assertTrue(test.equals(expected));
+		
+		BigDecimal d ;
+		Vector test;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.times(d).equals(new Vector(d.multiply(d),d.multiply(d))))
+				j++;
+		}
+		assertTrue(j==c);
 	}
 	
 	@Test
 	public void isCorrectDivide(){
-		Vector to_divide = new Vector(BigDecimal.TEN,BigDecimal.TEN);
-		int a = to_divide.getX().compareTo(to_divide.divide(BigDecimal.ONE).getX());
-		int b = to_divide.getY().compareTo(to_divide.divide(BigDecimal.ONE).getY());
-		assertTrue(a + b == 0 & a == 0);
+		BigDecimal d ;
+		Vector test;
+		int j=0,c=4;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.divide(d).equals(new Vector(d.divide(d),d.divide(d))))
+				j++;
+		}
+		assertTrue(j==c);
+		
+		
 	}
 	
 	@Test
 	public void isCorrectMinus(){
-		Vector m = new Vector(BigDecimal.TEN,BigDecimal.TEN);
-		Vector i = new Vector(BigDecimal.TEN,BigDecimal.TEN);
-		assertTrue(m.minus(i).equals(new Vector(BigDecimal.ZERO,BigDecimal.ZERO)));	
+		BigDecimal d ;
+		Vector test;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.minus(new Vector(d,d)).equals(new Vector(BigDecimal.ZERO,BigDecimal.ZERO)))
+				j++;
+		}
+		
+		assertTrue(j == c);	
 	}
 	
 	@Test
 	public void isCorrectAdd(){
-		Vector m = new Vector(BigDecimal.ZERO,BigDecimal.ZERO);
-		Vector i = new Vector(BigDecimal.ONE,BigDecimal.ONE);
-		assertTrue(m.add(i).equals(new Vector(BigDecimal.ONE,BigDecimal.ONE)));	
+		BigDecimal d ;
+		Vector test;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.add(new Vector(d.negate(),d.negate())).equals(new Vector(BigDecimal.ZERO,BigDecimal.ZERO)))
+				j++;
+		}
+		
+		assertTrue(j == c);
 	}
 	
 	@Test
 	public void isCorrectGetLength(){
-		BigDecimal a = new BigDecimal(Math.sqrt(2));
-		Vector i = new Vector(BigDecimal.ONE,BigDecimal.ONE);
-		//System.out.println("a: "+ a.setScale(15, ConstantsSpaceGame.ROUND).toString());
-		//System.out.println("i: "+ i.getLength().setScale(15, ConstantsSpaceGame.ROUND).toString());
-		assertTrue((i.getLength().setScale(15, ConstantsSpaceGame.ROUND).compareTo(a.setScale(15, ConstantsSpaceGame.ROUND)))==0);	
+		BigDecimal d;
+		Vector test;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.getLength().equals(test.sqrt(d.multiply(d).add(d.multiply(d)))))
+				j++;
+		}
+		
+		assertTrue(j == c);
+		
 	}
 	
 	@Test
 	public void isCorrectGetDistance(){
-		Vector m = new Vector(BigDecimal.ZERO,BigDecimal.ZERO);
-		Vector i = new Vector(BigDecimal.ONE,BigDecimal.ONE);
-		assertTrue(i.getDistance(m).setScale(15, ConstantsSpaceGame.ROUND).compareTo(new BigDecimal(Math.sqrt(2)).setScale(15, ConstantsSpaceGame.ROUND))==0);
+		BigDecimal d;
+		Vector test;
+		int j=0,c=400;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			if(test.getDistance(new Vector(BigDecimal.ONE,BigDecimal.ONE)).equals(test.sqrt(d.add(BigDecimal.ONE.negate()))))
+				j++;
+		}
+		
+		
 	}
+	
+	@Test
+	public void isCorrectSqrt(){
+		BigDecimal d;
+		Vector test;
+		int j=0,c=40,r;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( r = b.nextInt(20000000));
+			test = new Vector(d,d);
+			if((test.sqrt(d).setScale(15, ConstantsSpaceGame.ROUND)).equals((new BigDecimal(Math.sqrt(r))).setScale(15, ConstantsSpaceGame.ROUND)))
+				j++;
+		}
+			assertTrue(j == c);
+	}
+	
+	@Test
+	public void isCorrectToString(){
+		BigDecimal d;
+		Vector test;
+		int j=0,c=400;
+		String s;
+		Random b = new Random();
+		for(int i = 1; i<=c;i++){
+			d =new BigDecimal( b.nextInt(20000000));
+			test = new Vector(d,d);
+			s = "" + d.toBigInteger() + ", " + d.toBigInteger();
+			if(test.toString().equals(s))
+				j++;
+		}
+			assertTrue(j == c);
+		
+		
+	}
+	
 	
 }

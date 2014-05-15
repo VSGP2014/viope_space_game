@@ -1,5 +1,4 @@
 package utils;
-
 import java.math.BigDecimal;
 
 public class Vector {
@@ -36,7 +35,7 @@ public class Vector {
 	}
 	
 	public Vector minus(Vector other){
-		return new Vector(x.add((other.getX()).negate()),y.add((other.getY()).negate()));
+		return new Vector(x.add(other.getX().negate()),y.add(other.getY().negate()));
 	}
 	
 	public Vector add(Vector other) {
@@ -74,12 +73,13 @@ public class Vector {
 			return nr1;
 		}
 	}
-	
 	public boolean equals(Object o){
-		if (o instanceof Vector)
-			return x.equals(((Vector) o).x) && y.equals(((Vector) o).y);
-		else
-			return false;
+		if(o instanceof Vector){
+			Vector a = (Vector)o;
+			return this.x.equals(a.x) && this.y.equals(a.y) ; 
+		}
+		return false;
+		
 	}
 	
 	public String toString(){
