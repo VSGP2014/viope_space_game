@@ -100,6 +100,26 @@ public class Game {
 	public void setSpaceGUI(SpaceGUI spaceGUI) {
 		this.spaceGUI = spaceGUI;
 	}
-	
+	public void accelerateSpaceShip(int direction){
+		//spaceship.setLocation(new Vector(new BigDecimal("500"),new BigDecimal("500")));
+		//spaceship.move(new Vector(new BigDecimal("100000000"),new BigDecimal("1000000000")));
+		//spaceship.setVelocity(new Vector(new BigDecimal("-999999999"),new BigDecimal("-999999999")));
+		switch (direction) 
+			{
+			case 0: //UP
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("999999999")));
+				break;
+			case 1: //DOWN
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("-999999999")));
+				break;
+			case 2: //LEFT
+				universe.accelerateShip(new Vector(new BigDecimal("-999999999"),new BigDecimal("0")));
+				break;
+			case 3: //RIGHT
+				universe.accelerateShip(new Vector(new BigDecimal("999999999"),new BigDecimal("0")));
+				break;
+			}
+		
+	}
 
 }

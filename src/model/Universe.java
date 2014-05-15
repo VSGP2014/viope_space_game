@@ -38,7 +38,19 @@ public class Universe {
 		nb[bl]=body;
 		bodies = nb;
 	}
-	
+	public void accelerateShip(Vector vector)
+	{
+		for(int i=0;i<bodies.length;i++)
+		{
+			//bodies[i].setVelocity(new Vector(new BigDecimal("999999999"),new BigDecimal("999999999")));
+			if(bodies[i].getName().equals("Red Dwarf"))
+			{
+				vector=vector.add(bodies[i].getVelocity());
+				bodies[i].setVelocity(vector);
+				break;
+			}
+		}
+	}
 	// Formula of Newton: F = G * (m1*m2) / r2
 	// Direction from self to other, if time interval bigger, we should rotate by .5 alpha 
 	public void move() {

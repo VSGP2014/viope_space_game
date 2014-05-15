@@ -19,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 import javax.swing.JTextArea;
 
 public class SpaceGUI extends JPanel {
@@ -32,10 +35,13 @@ public class SpaceGUI extends JPanel {
 	public SpaceGUI(){
 		//setBackground(new Color(0, 51, 102));
 		setBackground(new Color(0, 0, 0));
-		setLayout(null);	
+		setLayout(null);
+		KeyListener listener=new MyKeyListener();
+		addKeyListener(listener);
+		setFocusable(true);
 	}
 	
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) {		
 		super.paintComponent(g);
 		double x, y;
 		double screenSize = Math.min(getWidth(),getHeight());
@@ -51,5 +57,29 @@ public class SpaceGUI extends JPanel {
 
 	public void setGame(Game game) {
 		this.game = game;
+	}
+
+	
+	public class MyKeyListener implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode()==KeyEvent.VK_UP)
+				game.accelerateSpaceShip(0);
+			if(e.getKeyCode()==KeyEvent.VK_DOWN)
+				game.accelerateSpaceShip(1);
+			if(e.getKeyCode()==KeyEvent.VK_LEFT)
+				game.accelerateSpaceShip(2);
+			if(e.getKeyCode()==KeyEvent.VK_RIGHT)
+				game.accelerateSpaceShip(3);
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			
+		}
 	}
 }
