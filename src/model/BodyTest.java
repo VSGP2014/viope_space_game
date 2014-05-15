@@ -26,7 +26,6 @@ public class BodyTest {
 	
 	@Test
 	public void testLocationRandomSeed(){
-		boolean ok;
 		Random random = new Random(400);
 		int n1 = random.nextInt(500);
 		int n2 = random.nextInt(500);
@@ -38,13 +37,7 @@ public class BodyTest {
 		assertEquals(test1.getX(),body.getLocation().getX());
 		assertEquals(test1.getY(),body.getLocation().getY());
 		test1 = new Vector(new BigDecimal(n2),new BigDecimal(n1));
-		if(test1==body.getLocation()){
-			ok = true;
-		}
-		else{
-			ok = false;
-		}
-		assertFalse(ok);
+		assertFalse(test1==body.getLocation());
 	}
 	
 	@Test
@@ -73,7 +66,6 @@ public class BodyTest {
 	@Test
 	public void testVelocityRandomSeed(){
 		Random random = new Random(400);
-		boolean ok;
 		int n1 = random.nextInt(600);
 		int n2 = random.nextInt(600);
 		while(n1==n2){
@@ -84,13 +76,7 @@ public class BodyTest {
 		assertEquals(test.getX(),body.getVelocity().getX());
 		assertEquals(test.getY(),body.getVelocity().getY());
 		body.setVelocity(new Vector(new BigDecimal(n2),new BigDecimal(n1)));
-		if(test==body.getVelocity()){
-			ok=true;
-		}
-		else{
-			ok=false;
-		}
-		assertFalse(ok);
+		assertFalse(test==body.getVelocity());
 	}
 	
 	@Test
