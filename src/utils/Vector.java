@@ -1,7 +1,6 @@
 package utils;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 
 public class Vector {
 	private BigDecimal x;

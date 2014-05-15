@@ -6,8 +6,6 @@ import java.awt.Color;
 import java.math.BigDecimal;
 
 import org.junit.Before;
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 
 import utils.ConstantsSpaceGame;

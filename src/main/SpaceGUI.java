@@ -1,28 +1,17 @@
 package main;
 
 import java.awt.Graphics;
-import java.math.BigDecimal;
 
 import javax.swing.JPanel;
 
 import utils.ConstantsSpaceGame;
 import utils.ConstantsUniverse;
-import utils.Vector;
 
-import model.Universe;
 import model.Body;
-import javax.swing.JButton;
 import java.awt.Color;
 
-import javax.swing.JFrame;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
-import javax.swing.JTextArea;
 
 public class SpaceGUI extends JPanel {
 	

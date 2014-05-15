@@ -12,7 +12,7 @@ import model.Universe;
 public class Game {
 	private SpaceGUI spaceGUI;
 	private Universe universe;
-	private Body spaceship, sun;
+	private Body spaceship;
 	private int movements = 0;
 	private int weeks = 0;
 	boolean gameOver = false;
