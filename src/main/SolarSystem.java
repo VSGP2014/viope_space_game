@@ -1,5 +1,6 @@
 package main;
 import model.Body;
+import model.Universe;
 
 import java.math.BigDecimal;
 import java.awt.Color;
