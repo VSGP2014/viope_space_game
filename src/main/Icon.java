@@ -21,6 +21,7 @@ public class Icon extends JPanel implements MouseListener
 		this.color = color;
 		this.width = width;
 		this.height = height;
+		addMouseListener(this);
 		//icon.setBackground(Color.black);
 		//icon.setPreferredSize(new Dimension(this.width, this.height));
 	}
@@ -34,15 +35,14 @@ public class Icon extends JPanel implements MouseListener
 
 	public void mouseClicked(MouseEvent e) 
 	{
-		this.color = Color.red;
-		repaint();
+		new Editor();
 	}
 
 	public void mouseEntered(MouseEvent e) 
 	{
 		//this.color = Color.white;
 		//repaint();
-		System.out.println("Hello!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		System.out.println(this.color);
 	}
 
 	public void mouseExited(MouseEvent e) 
