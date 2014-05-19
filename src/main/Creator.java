@@ -7,11 +7,14 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+//import javax.swing.JLabel; <- For Patrick and Ulisses
 
 public class Creator 
 {
@@ -70,6 +73,18 @@ public class Creator
 		view.add(seven);
 		view.add(eight);
 		view.add(nine);
+		
+		//Listener for buttons
+		add.addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// What happens after pressing the button
+						System.out.println("HERP DERP");
+					}
+				}
+			);
+		
 		
 		//Buttons
 		buttons.setLayout(new GridLayout(1, 3, 10, 0));
