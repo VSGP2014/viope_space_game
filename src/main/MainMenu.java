@@ -20,33 +20,44 @@ public class MainMenu{
 	{
 		JFrame frame = new JFrame("SpaceGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setPreferredSize(new Dimension(800,800));
+		
 		JButton start= new JButton("Start");
 		Font font= new Font("Arial", 0, 32);
-		
-		//start.setBackground(Color.cyan);
 		start.setFont(font);
 		start.setSize(150, 50);
-		JButton scores= new JButton("Scores");
-		scores.setBorderPainted(false);
-		scores.setSize(150,50);
-		scores.setFont(font);
-		
-		frame.setPreferredSize(new Dimension(800,800));
-		BufferedImage backGround=null;
 		start.setLocation((frame.getPreferredSize().width/2)-(start.getSize().width/2), 400);
+		
+		JButton scores= new JButton("Scores");
+		scores.setSize(150,50);
+		scores.setFont(font);		
 		scores.setLocation((frame.getPreferredSize().width/2)-(scores.getSize().width/2), (start.getLocation().y+start.getSize().height));
 		
-		//frame.setLayout(new GridLayout());
+		JButton about = new JButton("About");
+		about.setFont(font);
+		about.setSize(150,50);
+		about.setLocation((frame.getPreferredSize().width/2)-(about.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height));
+
+		JButton quit = new JButton("Quit");
+		quit.setFont(font);
+		quit.setSize(150,50);
+		quit.setLocation((frame.getPreferredSize().width/2)-(quit.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height+start.getSize().height));
+		
+		
+		MainMenu menu = new MainMenu();
+		BufferedImage backGround=null;
 	       try {                
-	           backGround = ImageIO.read(new File("C:\\Users\\formando\\Documents\\GitHub\\viope_space_game\\src\\main\\MainMenuBackGround.png"));
+	           backGround = ImageIO.read(menu.getClass().getResource("background.jpg"));
 	        } catch (IOException ex) {
-	             // handle exception...
 	        }
+	       
 	    JLabel picLabel = new JLabel(new ImageIcon(backGround));
 	    picLabel.setLocation(0,0);
 	    picLabel.setSize(frame.getPreferredSize());
 	    frame.getContentPane().add(start);
 	    frame.getContentPane().add(scores);
+	    frame.getContentPane().add(about);
+	    frame.getContentPane().add(quit);
 	    frame.getContentPane().add(picLabel);		
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
