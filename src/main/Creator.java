@@ -79,12 +79,28 @@ public class Creator
 				new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						// What happens after pressing the button
-						System.out.println("HERP DERP");
+						System.out.println("Add button");
 					}
 				}
 			);
-		
+		remove.addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// What happens after pressing the button
+						System.out.println("Remove button");
+					}
+				}
+			);
+		build.addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent arg0) {
+						// What happens after pressing the button
+						System.out.println("Build button");
+					}
+				}
+			);
 		
 		//Buttons
 		buttons.setLayout(new GridLayout(1, 3, 10, 0));

@@ -23,7 +23,7 @@ public class SpaceGUI extends JPanel {
 	
 	public SpaceGUI(){
 		//setBackground(new Color(0, 51, 102)); <- Blue background
-		Editor e = new Editor();
+		Creator c = new Creator();
 		setBackground(new Color(0, 0, 0));
 		setLayout(null);
 		KeyListener listener=new MyKeyListener();
