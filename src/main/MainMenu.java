@@ -49,6 +49,7 @@ public class MainMenu{
 	       try {                
 	           backGround = ImageIO.read(menu.getClass().getResource("background.jpg"));
 	        } catch (IOException ex) {
+	        	System.out.println("Herp derp no background");
 	        }
 	       
 	    JLabel picLabel = new JLabel(new ImageIcon(backGround));
