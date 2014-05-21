@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +16,11 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
-public class MainMenu{
+public class MainMenu implements ActionListener{
+	private static SpaceGUI spaceGUI;
+	private JFrame frame = new JFrame("SpaceGame");
+	JFrame scoreFrame= new JFrame("Scores");
+	JFrame aboutFrame= new JFrame("About");
 
 	public MainMenu(){
 		JFrame frame = new JFrame("SpaceGame");
@@ -54,6 +60,8 @@ public class MainMenu{
 		}
 	    Icon pressStartIcon = new ImageIcon(startPress);
 	    start.setPressedIcon(pressStartIcon);
+		start.setActionCommand("Start");
+		start.addActionListener(this);
 	    frame.getContentPane().add(start);
 		
 		//SCORES BUTTON
@@ -70,6 +78,8 @@ public class MainMenu{
 		scores.setLocation((frame.getPreferredSize().width/2)-(scores.getSize().width/2), (start.getLocation().y+start.getSize().height));
 		scores.setBorder(BorderFactory.createEmptyBorder());
 		scores.setContentAreaFilled(false);
+		scores.setActionCommand("Scores");
+		scores.addActionListener(this);
 		BufferedImage scoresRoll = null;
 		try{
 			scoresRoll = ImageIO.read(getClass().getResource("scores_button_highlighted.png"));
@@ -104,6 +114,8 @@ public class MainMenu{
 		about.setLocation((frame.getPreferredSize().width/2)-(about.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height));
 		about.setBorder(BorderFactory.createEmptyBorder());
 		about.setContentAreaFilled(false);
+		about.setActionCommand("About");
+		about.addActionListener(this);
 		BufferedImage aboutRoll = null;
 		try{
 			aboutRoll = ImageIO.read(getClass().getResource("about_button_highlighted.png"));
@@ -138,6 +150,8 @@ public class MainMenu{
 		quit.setLocation((frame.getPreferredSize().width/2)-(quit.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height+start.getSize().height));
 		quit.setBorder(BorderFactory.createEmptyBorder());
 		quit.setContentAreaFilled(false);
+		quit.setActionCommand("Quit");
+		quit.addActionListener(this);
 		BufferedImage quitRoll = null;
 		try{
 			quitRoll = ImageIO.read(getClass().getResource("exit_button_highlighted.png"));
@@ -177,12 +191,78 @@ public class MainMenu{
 		frame.pack();
 		frame.setVisible(true);
 	}
-	
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		String command=arg0.getActionCommand();
+		switch (command)
+		{
+			case "Quit" :
+				System.exit(0);
+				break;
+			case "Start" :				
+				Creator creator= new Creator();
+				frame.dispose();
+				//SpaceGame.StartGame();				
+				break;
+			case "Scores" :
+				initializeScores();
+				break;
+			case "About" :
+				initializeAbout();
+				break;
+			case "ScoresBack" :
+				scoreFrame.dispose();
+				break;
+			case "AboutBack" :
+				aboutFrame.dispose();
+				break;
+		}
+	}
 	public static Runnable createMenu(){
 		return new Runnable(){
 					public void run(){
 						new MainMenu();
 					}
 		};
+	}
+	public void initializeScores()
+	{		
+		scoreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		scoreFrame.setPreferredSize(new Dimension(800,800));		
+		JLabel player = new JLabel("Player1: 103");
+		player.setLocation(100, 50);
+		player.setSize(400, 50);
+		Font font=new Font("Arial",0,22);
+		player.setFont(font);
+		JButton back=new JButton("Back");
+		back.setSize(150,50);
+		back.setLocation(250,700);
+		back.addActionListener(this);
+		back.setActionCommand("ScoresBack");
+		scoreFrame.getContentPane().add(player);
+		scoreFrame.getContentPane().add(back);
+		scoreFrame.getContentPane().setLayout(null);
+		scoreFrame.setResizable(false);
+		scoreFrame.pack();
+		scoreFrame.setVisible(true);
+	}
+	public void initializeAbout()
+	{
+		aboutFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		aboutFrame.setPreferredSize(new Dimension(800,800));
+		JButton back=new JButton("Back");
+		back.setSize(150,50);
+		back.setLocation(250,700);
+		back.addActionListener(this);
+		back.setActionCommand("AboutBack");
+		JLabel info=new JLabel("Balh blah blah...");
+		info.setLocation(150,100);
+		info.setSize(250,100);
+		aboutFrame.getContentPane().add(info);
+		aboutFrame.getContentPane().add(back);
+		aboutFrame.getContentPane().setLayout(null);
+		aboutFrame.setResizable(false);
+		aboutFrame.pack();
+		aboutFrame.setVisible(true);
 	}
 }
