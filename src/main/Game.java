@@ -70,9 +70,12 @@ public class Game {
 			if(distanceToSun.compareTo(ConstantsSpaceGame.MINIMUMDISTANCE)==-1){
 				gameOver= true;
 				System.out.println("The " + spaceship.getName() + " just crashed on the sun!");
-			} else if (distanceToSun.compareTo(ConstantsSpaceGame.LOST)==1){
-				System.out.println("The" + spaceship.getName() + " is lost in space!");
-				gameOver= true;
+			} else if (distanceToSun.compareTo(ConstantsUniverse.PLUTO_ORBIT)==1){
+					if(isTooFast(SolarSystem.body[0])) // Too fast for the Sun
+						if(isTooFast(SolarSystem.body)){ // Too fast for the system
+							System.out.println("The" + spaceship.getName() + " is lost in space!");
+							gameOver= true;
+						}
 			} else if (movements>year*ConstantsSpaceGame.YEARSSUPPLY) {
 				System.out.println("No more food or water available in the " + spaceship.getName() + ". The entire crew just died.");
 				gameOver= true;
@@ -119,7 +122,21 @@ public class Game {
 				universe.accelerateShip(new Vector(new BigDecimal("999999999"),new BigDecimal("0")));
 				break;
 			}
-		
 	}
 
+	private boolean isTooFast(Body b){
+		return spaceship.getVelocity().getLength().compareTo(Vector.sqrt(bodyActraction(b))) > 0;	
+	}
+
+	private boolean isTooFast(Body[] b){
+		BigDecimal max = BigDecimal.ZERO;
+		for (Body body : b){
+			max = max.add(bodyActraction(body));
+		}
+		return spaceship.getVelocity().getLength().compareTo(Vector.sqrt(max)) > 0;	
+	}
+	
+	private BigDecimal bodyActraction(Body b){
+		return (ConstantsUniverse.G).multiply(b.getWeight().divide(spaceship.getDistance(b),ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND)).multiply(new BigDecimal(2));
+	}
 }

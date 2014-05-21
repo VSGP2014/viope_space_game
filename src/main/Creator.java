@@ -221,8 +221,12 @@ public class Creator
 	       @Override
 	       public void run() {
 				spaceGUI = new SpaceGUI();
+				// Start the game
+				Game game = new Game();
+				//game.setInitialVelocity(xVel, yVel);
+				spaceGUI.setGame(game);
+				game.setSpaceGUI(spaceGUI);
 				JFrame spaceFrame = new JFrame();
-				
 				Dimension screenSize = new Dimension(800,800);
 				Container cp = spaceFrame.getContentPane();
 				cp.setBackground(Color.black);
@@ -232,13 +236,7 @@ public class Creator
 				spaceFrame.setTitle("Space Game");
 				spaceFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				spaceFrame.setVisible(true);
-				// Start the game
-				Game game = new Game();
-				//game.setInitialVelocity(xVel, yVel);
-				spaceGUI.setGame(game);
-				game.setSpaceGUI(spaceGUI);
-				game.runGame();	           
-
+				game.runGame();
 	           // Exit the loop
 	           loop.exit();
 	       }

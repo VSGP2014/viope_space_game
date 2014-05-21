@@ -122,7 +122,7 @@ public class Vector {
 	 * @param number The BigDecimal of which I need his square root.
 	 * @return A BigDecimal containing the square root.
 	 */
-	public BigDecimal sqrt(BigDecimal number){
+	public static BigDecimal sqrt(BigDecimal number){
 	//	System.out.println("Vector sqrt number: " + number);
 		if(number.compareTo(BigDecimal.ZERO) < 0){
 			return new BigDecimal("-1");
