@@ -1,23 +1,19 @@
 package main;
 
-import java.awt.Button;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.LayoutManager;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.*;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class MainMenu{
 
-	private static void CreateMenu()
-	{
+	public MainMenu(){
 		JFrame frame = new JFrame("SpaceGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(800,800));
@@ -43,11 +39,9 @@ public class MainMenu{
 		quit.setSize(150,50);
 		quit.setLocation((frame.getPreferredSize().width/2)-(quit.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height+start.getSize().height));
 		
-		
-		MainMenu menu = new MainMenu();
 		BufferedImage backGround=null;
 	       try {                
-	           backGround = ImageIO.read(menu.getClass().getResource("background.jpg"));
+	           backGround = ImageIO.read(getClass().getResource("background.jpg"));
 	        } catch (IOException ex) {
 	        	System.out.println("Herp derp no background");
 	        }
@@ -65,16 +59,12 @@ public class MainMenu{
 		frame.pack();
 		frame.setVisible(true);
 	}
-	public static void main(String[] args)
-	{
-		javax.swing.SwingUtilities.invokeLater(
-				new Runnable() {
-					public void run()
-					{
-						CreateMenu();
+	
+	public static Runnable createMenu(){
+		return new Runnable(){
+					public void run(){
+						new MainMenu();
 					}
-				}
-				);
-		
+		};
 	}
 }

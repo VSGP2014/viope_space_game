@@ -4,6 +4,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ public class SpaceGame {
 	/**
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args){
 				
 		spaceGUI = new SpaceGUI();
 		// Asking data to user
@@ -27,6 +28,10 @@ public class SpaceGame {
 		BigDecimal yVel = input.nextBigDecimal();
 		input.close();
 		// Creating the graphical part - BEHOLD HUMAN
+		try {
+		EventQueue.invokeAndWait(MainMenu.createMenu());
+		} catch (Exception e) 
+		{System.out.println("Hello derp"); return;}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				JFrame spaceFrame = new JFrame();
