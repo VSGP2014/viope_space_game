@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 
 public class Editor extends JFrame
 {
-	JFrame frame;
 	JLabel name = new JLabel("Name:");
 	JLabel dist = new JLabel("Location:");
 	JLabel mass = new JLabel("Mass:");
@@ -48,21 +47,26 @@ public class Editor extends JFrame
 	
 	JPanel commitPanel = new JPanel();
 	JButton commit = new JButton("Commit");
+	
 	private Icon icon;
+	private String dist1;
+	private String dist2;
+	private String vel1;
+	private String vel2;
 	
 	public Editor(Icon icon)
 	{
 		this.icon = icon;
-		frame = new JFrame();
-		frame.setSize(500, 500);
-		frame.setLocation(600, 200);
-		frame.setResizable(false);
-		frame.setUndecorated(false);
-		frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		frame.setTitle("Editor");
-		frame.setVisible(true);
+
+		setSize(500, 500);
+		setLocation(600, 200);
+		setResizable(false);
+		setUndecorated(false);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setTitle("Editor");
+		setVisible(true);
 		
-		frame.setLayout(new GridBagLayout());
+		setLayout(new GridBagLayout());
 		GridBagConstraints c = new GridBagConstraints();
 		
 		//Commit Button
@@ -74,46 +78,35 @@ public class Editor extends JFrame
 			{
 				System.out.println("Committed");
 				
-				//Editor.this.dispose();
-				Editor.this.dispatchEvent(new WindowEvent(Editor.this, WindowEvent.WINDOW_CLOSING));
 				Editor.this.icon.active = false;
 				System.out.println(Editor.this.icon.id + " is inactive!");
-				//Icon.edit.setVisible(false);
-				System.out.println("Name: " + nameX.getText());
-				System.out.println("Mass: " + massX.getText());
+				/*SolarSystem.body[Editor.this.icon.id].setName(nameX.getText());
+				SolarSystem.body[Editor.this.icon.id].setWeight(massX.getText());
+				SolarSystem.body[Editor.this.icon.id].setColor(colors[colorX.getSelectedIndex()]);
 				System.out.println("Velocity: " + velX.getText());
-				System.out.println("Position: " + distX.getText());
-			}
-		});
-		
-		/*//Listeners for textfields
-		nameX.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event)
-			{
-				System.out.println("Name: " + nameX.getText());
-			}
-		});
-		
-		massX.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent event)
-			{
-				System.out.println("Mass: " + massX.getText());
+				System.out.println("Position: " + distX.getText());*/
+				
+				dispose();
 			}
 		});
 		
 		velX.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event)
 			{
-				System.out.println("Velocity: " + velX.getText());
+				String text = velX.getText();
+				for(char c : text.toCharArray())
+				{
+					//if(c.)
+				}
 			}
 		});
 		
 		distX.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event)
 			{
-				System.out.println("Position: " + distX.getText());
+				
 			}
-		});*/
+		});
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -130,7 +123,7 @@ public class Editor extends JFrame
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.PAGE_START;
 		c.insets = new Insets(10, 5, 0, 0);
-		frame.add(name, c);
+		add(name, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -139,7 +132,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 5, 0, 0);
-		frame.add(dist, c);
+		add(dist, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -148,7 +141,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 5, 0, 0);
-		frame.add(mass, c);
+		add(mass, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -157,7 +150,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 5, 0, 0);
-		frame.add(vel, c);
+		add(vel, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -166,7 +159,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 5, 0, 0);
-		frame.add(color, c);
+		add(color, c);
 		
 		//Textfields
 		c.weightx = 0.5;
@@ -176,7 +169,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
-		frame.add(nameX, c);
+		add(nameX, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -185,7 +178,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
-		frame.add(distX, c);
+		add(distX, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -194,7 +187,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
-		frame.add(massX, c);
+		add(massX, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -203,7 +196,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
-		frame.add(velX, c);
+		add(velX, c);
 				
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -212,7 +205,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
-		frame.add(colorX, c);
+		add(colorX, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -221,7 +214,7 @@ public class Editor extends JFrame
 		c.anchor = GridBagConstraints.PAGE_END;
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 0, 0, 0);
-		frame.add(commitPanel, c);
-		frame.pack();
+		add(commitPanel, c);
+		pack();
 	}
 }
