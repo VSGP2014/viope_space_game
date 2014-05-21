@@ -22,7 +22,8 @@ public class SpaceGUI extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	
+	double fuel=100;
+	double origFuel;
 	public SpaceGUI(){
 		//setBackground(new Color(0, 51, 102)); <- Blue background
 		//Creator c = new Creator();
@@ -31,8 +32,13 @@ public class SpaceGUI extends JPanel {
 		KeyListener listener=new MyKeyListener();
 		addKeyListener(listener);
 		setFocusable(true);
+		
 	}
-	
+	public void setFuel(double fuel)
+	{
+		this.fuel=fuel;
+		origFuel=fuel;
+	}
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		double x, y;
@@ -45,7 +51,7 @@ public class SpaceGUI extends JPanel {
 			int d = (int)(r/2.0);
 			g.fillOval((int)x-d,(int)y-d,r,r);
 		}
-		g.drawString("Fuel: 99%", getWidth()-((getWidth()/100)*10), getHeight()-((getHeight()/100)*98));
+		g.drawString("Fuel: "+Math.round((fuel/origFuel)*100)+"%", getWidth()-((getWidth()/100)*10), getHeight()-((getHeight()/100)*98));
 	}
 
 	public void setGame(Game game) {
@@ -60,16 +66,23 @@ public class SpaceGUI extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if(e.getKeyCode()==KeyEvent.VK_UP)
-				game.accelerateSpaceShip(0);
-			if(e.getKeyCode()==KeyEvent.VK_DOWN)
-				game.accelerateSpaceShip(1);
-			if(e.getKeyCode()==KeyEvent.VK_LEFT)
-				game.accelerateSpaceShip(2);
-			if(e.getKeyCode()==KeyEvent.VK_RIGHT)
-				game.accelerateSpaceShip(3);
+			if(fuel>0)
+			{
+				fuel--;
+				if(e.getKeyCode()==KeyEvent.VK_UP)
+					game.accelerateSpaceShip(0);
+				if(e.getKeyCode()==KeyEvent.VK_DOWN)
+					game.accelerateSpaceShip(1);
+				if(e.getKeyCode()==KeyEvent.VK_LEFT)
+					game.accelerateSpaceShip(2);
+				if(e.getKeyCode()==KeyEvent.VK_RIGHT)
+					game.accelerateSpaceShip(3);
+			}
+			else
+			{
+				
+			}
 		}
-
 		@Override
 		public void keyReleased(KeyEvent e) {
 			
