@@ -77,13 +77,6 @@ public class Editor extends JFrame
 			public void actionPerformed(ActionEvent event)
 			{
 				System.out.println("Committed");
-				
-<<<<<<< HEAD
-=======
-				//Editor.this.dispose();
-				frame.dispose();
-				Editor.this.dispatchEvent(new WindowEvent(Editor.this, WindowEvent.WINDOW_CLOSING));
->>>>>>> branch 'master' of https://github.com/VSGP2014/viope_space_game.git
 				Editor.this.icon.active = false;
 				System.out.println(Editor.this.icon.id + " is inactive!");
 				/*SolarSystem.body[Editor.this.icon.id].setName(nameX.getText());
