@@ -1,7 +1,9 @@
 package main;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import utils.ConstantsSpaceGame;
@@ -23,7 +25,7 @@ public class SpaceGUI extends JPanel {
 	
 	public SpaceGUI(){
 		//setBackground(new Color(0, 51, 102)); <- Blue background
-		Creator c = new Creator();
+		//Creator c = new Creator();
 		setBackground(new Color(0, 0, 0));
 		setLayout(null);
 		KeyListener listener=new MyKeyListener();
@@ -31,7 +33,7 @@ public class SpaceGUI extends JPanel {
 		setFocusable(true);
 	}
 	
-	public void paintComponent(Graphics g) {		
+	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		double x, y;
 		double screenSize = Math.min(getWidth(),getHeight());
@@ -43,6 +45,7 @@ public class SpaceGUI extends JPanel {
 			int d = (int)(r/2.0);
 			g.fillOval((int)x-d,(int)y-d,r,r);
 		}
+		g.drawString("Fuel: 99%", getWidth()-((getWidth()/100)*10), getHeight()-((getHeight()/100)*98));
 	}
 
 	public void setGame(Game game) {
