@@ -30,7 +30,7 @@ public class MainMenu implements ActionListener{
 		//START BUTTON
 		BufferedImage startIcon = null;
 		try{
-			startIcon = ImageIO.read(getClass().getResource("start_button.png"));
+			startIcon = ImageIO.read(getClass().getResource("menu/start_button.png"));
 		}
 		catch (IOException ex) {
         	System.out.println("Herp derp no image");
@@ -44,7 +44,7 @@ public class MainMenu implements ActionListener{
 		start.setContentAreaFilled(false);
 		BufferedImage startRoll = null;
 		try{
-			startRoll = ImageIO.read(getClass().getResource("start_button_highlighted.png"));
+			startRoll = ImageIO.read(getClass().getResource("menu/start_button_highlighted.png"));
 		}
 		catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -53,7 +53,7 @@ public class MainMenu implements ActionListener{
 	    start.setRolloverIcon(startRollIcon);
 	    BufferedImage startPress = null;
 	    try{
-	    	startPress = ImageIO.read(getClass().getResource("start_button_inverted.png"));
+	    	startPress = ImageIO.read(getClass().getResource("menu/start_button_inverted.png"));
 	    }
 	    catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -67,7 +67,7 @@ public class MainMenu implements ActionListener{
 		//SCORES BUTTON
 	    BufferedImage scoresIcon = null;
 		try{
-			scoresIcon = ImageIO.read(getClass().getResource("scores_button.png"));
+			scoresIcon = ImageIO.read(getClass().getResource("menu/scores_button.png"));
 		}
 		catch (IOException ex) {
         	System.out.println("Herp derp no image");
@@ -82,7 +82,7 @@ public class MainMenu implements ActionListener{
 		scores.addActionListener(this);
 		BufferedImage scoresRoll = null;
 		try{
-			scoresRoll = ImageIO.read(getClass().getResource("scores_button_highlighted.png"));
+			scoresRoll = ImageIO.read(getClass().getResource("menu/scores_button_highlighted.png"));
 		}
 		catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -91,7 +91,7 @@ public class MainMenu implements ActionListener{
 		scores.setRolloverIcon(scoresRollIcon);
 	    BufferedImage scoresPress = null;
 	    try{
-	    	scoresPress = ImageIO.read(getClass().getResource("scores_button_inverted.png"));
+	    	scoresPress = ImageIO.read(getClass().getResource("menu/scores_button_inverted.png"));
 	    }
 	    catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -103,7 +103,7 @@ public class MainMenu implements ActionListener{
 		//ABOUT BUTTON
 	    BufferedImage aboutIcon = null;
 		try{
-			aboutIcon = ImageIO.read(getClass().getResource("about_button.png"));
+			aboutIcon = ImageIO.read(getClass().getResource("menu/about_button.png"));
 		}
 		catch (IOException ex) {
         	System.out.println("Herp derp no image");
@@ -118,7 +118,7 @@ public class MainMenu implements ActionListener{
 		about.addActionListener(this);
 		BufferedImage aboutRoll = null;
 		try{
-			aboutRoll = ImageIO.read(getClass().getResource("about_button_highlighted.png"));
+			aboutRoll = ImageIO.read(getClass().getResource("menu/about_button_highlighted.png"));
 		}
 		catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -127,7 +127,7 @@ public class MainMenu implements ActionListener{
 		about.setRolloverIcon(aboutRollIcon);
 	    BufferedImage aboutPress = null;
 	    try{
-	    	aboutPress = ImageIO.read(getClass().getResource("about_button_inverted.png"));
+	    	aboutPress = ImageIO.read(getClass().getResource("menu/about_button_inverted.png"));
 	    }
 	    catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -139,7 +139,7 @@ public class MainMenu implements ActionListener{
 		//QUIT BUTTON
 	    BufferedImage quitIcon = null;
 		try{
-			quitIcon = ImageIO.read(getClass().getResource("exit_button.png"));
+			quitIcon = ImageIO.read(getClass().getResource("menu/exit_button.png"));
 		}
 		catch (IOException ex) {
         	System.out.println("Herp derp no image");
@@ -154,7 +154,7 @@ public class MainMenu implements ActionListener{
 		quit.addActionListener(this);
 		BufferedImage quitRoll = null;
 		try{
-			quitRoll = ImageIO.read(getClass().getResource("exit_button_highlighted.png"));
+			quitRoll = ImageIO.read(getClass().getResource("menu/exit_button_highlighted.png"));
 		}
 		catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -163,7 +163,7 @@ public class MainMenu implements ActionListener{
 		quit.setRolloverIcon(quitRollIcon);
 	    BufferedImage quitPress = null;
 	    try{
-	    	quitPress = ImageIO.read(getClass().getResource("exit_button_inverted.png"));
+	    	quitPress = ImageIO.read(getClass().getResource("menu/exit_button_inverted.png"));
 	    }
 	    catch (IOException ex){
 			System.out.println("Herp derp no image");
@@ -174,7 +174,7 @@ public class MainMenu implements ActionListener{
 		
 		BufferedImage backGround=null;
 	       try {                
-	           backGround = ImageIO.read(getClass().getResource("background.jpg"));
+	           backGround = ImageIO.read(getClass().getResource("menu/background.jpg"));
 	        } catch (IOException ex) {
 	        	System.out.println("Herp derp no background");
 	        }
@@ -256,7 +256,7 @@ public class MainMenu implements ActionListener{
 		back.setLocation(250,700);
 		back.addActionListener(this);
 		back.setActionCommand("AboutBack");
-		JLabel info=new JLabel("Balh blah blah...");
+		JLabel info=new JLabel("The best Space Game evah... AND IT WORKS! :D");
 		info.setLocation(150,100);
 		info.setSize(250,100);
 		aboutFrame.getContentPane().add(info);

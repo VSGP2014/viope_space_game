@@ -33,14 +33,14 @@ public class Editor extends JFrame
 	
 	Color[] colors = {Color.blue, Color.cyan, Color.green, Color.magenta, Color.orange, Color.red, Color.white, Color.yellow};
 	
-	ImageIcon blue = new ImageIcon(getClass().getResource("Blue.png"), "Blue");
-	ImageIcon cyan = new ImageIcon(getClass().getResource("Cyan.png"), "Cyan");
-	ImageIcon green = new ImageIcon(getClass().getResource("Green.png"), "Green");
-	ImageIcon magenta = new ImageIcon(getClass().getResource("Magenta.png"), "Magenta");
-	ImageIcon orange = new ImageIcon(getClass().getResource("Orange.png"), "Orange");
-	ImageIcon red = new ImageIcon(getClass().getResource("Red.png"), "Red");
-	ImageIcon white = new ImageIcon(getClass().getResource("White.png"), "White");
-	ImageIcon yellow = new ImageIcon(getClass().getResource("Yellow.png"), "Yellow");
+	ImageIcon blue = new ImageIcon(getClass().getResource("colors/Blue.png"), "Blue");
+	ImageIcon cyan = new ImageIcon(getClass().getResource("colors/Cyan.png"), "Cyan");
+	ImageIcon green = new ImageIcon(getClass().getResource("colors/Green.png"), "Green");
+	ImageIcon magenta = new ImageIcon(getClass().getResource("colors/Magenta.png"), "Magenta");
+	ImageIcon orange = new ImageIcon(getClass().getResource("colors/Orange.png"), "Orange");
+	ImageIcon red = new ImageIcon(getClass().getResource("colors/Red.png"), "Red");
+	ImageIcon white = new ImageIcon(getClass().getResource("colors/White.png"), "White");
+	ImageIcon yellow = new ImageIcon(getClass().getResource("colors/Yellow.png"), "Yellow");
 	
 	ImageIcon[] colorPic = {blue, cyan, green, magenta, orange, red, white, yellow};
 	JComboBox colorX = new JComboBox(colorPic);
