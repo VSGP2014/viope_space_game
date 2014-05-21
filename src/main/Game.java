@@ -3,6 +3,8 @@ package main;
 import java.awt.Color;
 import java.math.BigDecimal;
 
+import javax.swing.JOptionPane;
+
 import utils.ConstantsSpaceGame;
 import utils.ConstantsUniverse;
 import utils.Vector;
@@ -69,6 +71,7 @@ public class Game {
 			BigDecimal distanceToSun = spaceship.getDistance(sun);
 			if(distanceToSun.compareTo(ConstantsSpaceGame.MINIMUMDISTANCE)==-1){
 				gameOver= true;
+				JOptionPane.showMessageDialog(null, "\tOh no! \nYou just crashed into the sun!");
 				System.out.println("The " + spaceship.getName() + " just crashed on the sun!");
 			} else if (distanceToSun.compareTo(ConstantsUniverse.PLUTO_ORBIT)==1){
 					if(isTooFast(SolarSystem.body[0])) // Too fast for the Sun
