@@ -3,9 +3,12 @@ package main;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
-import javax.imageio.ImageIO;
 
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,26 +21,142 @@ public class MainMenu{
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(800,800));
 		
-		JButton start= new JButton("Start");
+		//START BUTTON
+		BufferedImage startIcon = null;
+		try{
+			startIcon = ImageIO.read(getClass().getResource("start_button.png"));
+		}
+		catch (IOException ex) {
+        	System.out.println("Herp derp no image");
+        }
+		JButton start= new JButton(new ImageIcon(startIcon));
 		Font font= new Font("Arial", 0, 32);
 		start.setFont(font);
 		start.setSize(150, 50);
-		start.setLocation((frame.getPreferredSize().width/2)-(start.getSize().width/2), 400);
+		start.setLocation((frame.getPreferredSize().width/2)-(start.getSize().width/2), 300);
+		start.setBorder(BorderFactory.createEmptyBorder());
+		start.setContentAreaFilled(false);
+		BufferedImage startRoll = null;
+		try{
+			startRoll = ImageIO.read(getClass().getResource("start_button_highlighted.png"));
+		}
+		catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+		Icon startRollIcon = new ImageIcon(startRoll);
+	    start.setRolloverIcon(startRollIcon);
+	    BufferedImage startPress = null;
+	    try{
+	    	startPress = ImageIO.read(getClass().getResource("start_button_inverted.png"));
+	    }
+	    catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+	    Icon pressStartIcon = new ImageIcon(startPress);
+	    start.setPressedIcon(pressStartIcon);
+	    frame.getContentPane().add(start);
 		
-		JButton scores= new JButton("Scores");
+		//SCORES BUTTON
+	    BufferedImage scoresIcon = null;
+		try{
+			scoresIcon = ImageIO.read(getClass().getResource("scores_button.png"));
+		}
+		catch (IOException ex) {
+        	System.out.println("Herp derp no image");
+        }
+		JButton scores= new JButton(new ImageIcon(scoresIcon));
 		scores.setSize(150,50);
 		scores.setFont(font);		
 		scores.setLocation((frame.getPreferredSize().width/2)-(scores.getSize().width/2), (start.getLocation().y+start.getSize().height));
+		scores.setBorder(BorderFactory.createEmptyBorder());
+		scores.setContentAreaFilled(false);
+		BufferedImage scoresRoll = null;
+		try{
+			scoresRoll = ImageIO.read(getClass().getResource("scores_button_highlighted.png"));
+		}
+		catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+		Icon scoresRollIcon = new ImageIcon(scoresRoll);
+		scores.setRolloverIcon(scoresRollIcon);
+	    BufferedImage scoresPress = null;
+	    try{
+	    	scoresPress = ImageIO.read(getClass().getResource("scores_button_inverted.png"));
+	    }
+	    catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+	    Icon pressScoresIcon = new ImageIcon(scoresPress);
+	    scores.setPressedIcon(pressScoresIcon);
+	    frame.getContentPane().add(scores);
 		
-		JButton about = new JButton("About");
+		//ABOUT BUTTON
+	    BufferedImage aboutIcon = null;
+		try{
+			aboutIcon = ImageIO.read(getClass().getResource("about_button.png"));
+		}
+		catch (IOException ex) {
+        	System.out.println("Herp derp no image");
+        }
+		JButton about = new JButton(new ImageIcon(aboutIcon));
 		about.setFont(font);
 		about.setSize(150,50);
 		about.setLocation((frame.getPreferredSize().width/2)-(about.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height));
-
-		JButton quit = new JButton("Quit");
+		about.setBorder(BorderFactory.createEmptyBorder());
+		about.setContentAreaFilled(false);
+		BufferedImage aboutRoll = null;
+		try{
+			aboutRoll = ImageIO.read(getClass().getResource("about_button_highlighted.png"));
+		}
+		catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+		Icon aboutRollIcon = new ImageIcon(aboutRoll);
+		about.setRolloverIcon(aboutRollIcon);
+	    BufferedImage aboutPress = null;
+	    try{
+	    	aboutPress = ImageIO.read(getClass().getResource("about_button_inverted.png"));
+	    }
+	    catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+	    Icon pressAboutIcon = new ImageIcon(aboutPress);
+	    about.setPressedIcon(pressAboutIcon);
+	    frame.getContentPane().add(about);
+		
+		//QUIT BUTTON
+	    BufferedImage quitIcon = null;
+		try{
+			quitIcon = ImageIO.read(getClass().getResource("exit_button.png"));
+		}
+		catch (IOException ex) {
+        	System.out.println("Herp derp no image");
+        }
+		JButton quit = new JButton(new ImageIcon(quitIcon));
 		quit.setFont(font);
 		quit.setSize(150,50);
 		quit.setLocation((frame.getPreferredSize().width/2)-(quit.getSize().width/2), (start.getLocation().y+start.getSize().height+start.getSize().height+start.getSize().height));
+		quit.setBorder(BorderFactory.createEmptyBorder());
+		quit.setContentAreaFilled(false);
+		BufferedImage quitRoll = null;
+		try{
+			quitRoll = ImageIO.read(getClass().getResource("exit_button_highlighted.png"));
+		}
+		catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+		Icon quitRollIcon = new ImageIcon(quitRoll);
+		quit.setRolloverIcon(quitRollIcon);
+	    BufferedImage quitPress = null;
+	    try{
+	    	quitPress = ImageIO.read(getClass().getResource("exit_button_inverted.png"));
+	    }
+	    catch (IOException ex){
+			System.out.println("Herp derp no image");
+		}
+	    Icon pressQuitIcon = new ImageIcon(quitPress);
+	    quit.setPressedIcon(pressQuitIcon);
+	    frame.getContentPane().add(quit); 
 		
 		BufferedImage backGround=null;
 	       try {                
@@ -45,14 +164,13 @@ public class MainMenu{
 	        } catch (IOException ex) {
 	        	System.out.println("Herp derp no background");
 	        }
-	       
+	    
+	    
 	    JLabel picLabel = new JLabel(new ImageIcon(backGround));
 	    picLabel.setLocation(0,0);
 	    picLabel.setSize(frame.getPreferredSize());
-	    frame.getContentPane().add(start);
-	    frame.getContentPane().add(scores);
-	    frame.getContentPane().add(about);
-	    frame.getContentPane().add(quit);
+
+
 	    frame.getContentPane().add(picLabel);		
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
