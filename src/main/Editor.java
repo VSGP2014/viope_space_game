@@ -5,6 +5,9 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,9 +22,9 @@ public class Editor extends JFrame
 {
 	JFrame frame;
 	JLabel name = new JLabel("Name:");
-	JLabel dist = new JLabel("Distance:");
+	JLabel dist = new JLabel("Location:");
 	JLabel mass = new JLabel("Mass:");
-	JLabel vel = new JLabel("Vel:");
+	JLabel vel = new JLabel("Velocity:");
 	JLabel color = new JLabel("Color:");
 	
 	JTextField nameX = new JTextField(20);
@@ -29,7 +32,7 @@ public class Editor extends JFrame
 	JTextField velX = new JTextField(20);
 	JTextField distX = new JTextField(20);
 	
-	Color[] colors = {Color.red, Color.orange, Color.blue, Color.green, Color.yellow, Color.white, Color.cyan, Color.magenta};
+	Color[] colors = {Color.blue, Color.cyan, Color.green, Color.magenta, Color.orange, Color.red, Color.white, Color.yellow};
 	
 	ImageIcon blue = new ImageIcon(getClass().getResource("Blue.png"), "Blue");
 	ImageIcon cyan = new ImageIcon(getClass().getResource("Cyan.png"), "Cyan");
@@ -40,15 +43,16 @@ public class Editor extends JFrame
 	ImageIcon white = new ImageIcon(getClass().getResource("White.png"), "White");
 	ImageIcon yellow = new ImageIcon(getClass().getResource("Yellow.png"), "Yellow");
 	
-	//ImageIcon[] colorPic = {yellow};
 	ImageIcon[] colorPic = {blue, cyan, green, magenta, orange, red, white, yellow};
 	JComboBox colorX = new JComboBox(colorPic);
 	
 	JPanel commitPanel = new JPanel();
 	JButton commit = new JButton("Commit");
+	private Icon icon;
 	
-	public Editor()
+	public Editor(Icon icon)
 	{
+		this.icon = icon;
 		frame = new JFrame();
 		frame.setSize(500, 500);
 		frame.setLocation(600, 200);
@@ -63,6 +67,53 @@ public class Editor extends JFrame
 		
 		//Commit Button
 		commitPanel.setLayout(new GridBagLayout());
+		
+		//code for committing changes
+		commit.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				System.out.println("Committed");
+				
+				//Editor.this.dispose();
+				Editor.this.dispatchEvent(new WindowEvent(Editor.this, WindowEvent.WINDOW_CLOSING));
+				Editor.this.icon.active = false;
+				System.out.println(Editor.this.icon.id + " is inactive!");
+				//Icon.edit.setVisible(false);
+				System.out.println("Name: " + nameX.getText());
+				System.out.println("Mass: " + massX.getText());
+				System.out.println("Velocity: " + velX.getText());
+				System.out.println("Position: " + distX.getText());
+			}
+		});
+		
+		/*//Listeners for textfields
+		nameX.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				System.out.println("Name: " + nameX.getText());
+			}
+		});
+		
+		massX.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				System.out.println("Mass: " + massX.getText());
+			}
+		});
+		
+		velX.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				System.out.println("Velocity: " + velX.getText());
+			}
+		});
+		
+		distX.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event)
+			{
+				System.out.println("Position: " + distX.getText());
+			}
+		});*/
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -153,7 +204,7 @@ public class Editor extends JFrame
 		c.weighty = 0.5;
 		c.insets = new Insets(10, 10, 0, 0);
 		frame.add(velX, c);
-		
+				
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 1;

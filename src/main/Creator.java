@@ -19,6 +19,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class Creator 
 {
@@ -30,21 +31,20 @@ public class Creator
 	JButton backB = new JButton("Back");
 	JButton defaultB = new JButton("Default");
 	JButton buildB = new JButton("Build");
-	JLabel fuel = new JLabel("Fuel");
-	JLabel name = new JLabel("Player Name");
-	JLabel  fuelAmount= new JLabel("0");
 	JTextField slideText = new JTextField();
-	JSlider slide = new JSlider(0,500,250);
+	JLabel name = new JLabel("Player Name: Player");
+	JSlider slider = new JSlider(0,500,250);
+	JLabel  fuelAmount= new JLabel("Fuel Quantity: " + slider.getValue());
 	
-	Icon one = new Icon(Color.red, 150, 150);
-	Icon two = new Icon(Color.orange, 150, 150);
-	Icon three = new Icon(Color.blue, 150, 150);
-	Icon four = new Icon(Color.green, 150, 150);
-	Icon five = new Icon(Color.yellow, 150, 150);
-	Icon six = new Icon(Color.orange, 150, 150);
-	Icon seven = new Icon(Color.white, 150, 150);
-	Icon eight = new Icon(Color.cyan, 150, 150);
-	Icon nine = new Icon(Color.magenta, 150, 150);
+	Icon one = new Icon(Color.red, 150, 150, 1);
+	Icon two = new Icon(Color.orange, 150, 150, 2);
+	Icon three = new Icon(Color.blue, 150, 150, 3);
+	Icon four = new Icon(Color.green, 150, 150, 4);
+	Icon five = new Icon(Color.yellow, 150, 150, 5);
+	Icon six = new Icon(Color.orange, 150, 150, 6);
+	Icon seven = new Icon(Color.white, 150, 150, 7);
+	Icon eight = new Icon(Color.cyan, 150, 150, 8);
+	Icon nine = new Icon(Color.magenta, 150, 150, 9);
 	
 	public Creator()
 	{
@@ -68,7 +68,7 @@ public class Creator
 		
 		for(Icon c : objects)
 		{
-			c.setPreferredSize(new Dimension(c.width, c.height));
+			c.setPreferredSize(new Dimension(c.getWidth(), c.getHeight()));
 		}
 		
 		view.setLayout(new GridLayout(3, 3, 5, 5));
@@ -91,36 +91,46 @@ public class Creator
 		buttons.add(buildB);
 		
 		//Listener for buttons
-		backB.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent arg0) {
-								System.out.println("Add button");
-							}
-						}
-					);
-		defaultB.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent arg0) {
-								// What happens after pressing the button
-								System.out.println("Remove button");
-							}
-						}
-					);
-		buildB.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent arg0) {
-								// What happens after pressing the button
-								System.out.println("Build button");
-							}
-						}
-					);
+		backB.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("Add button");
+			}
+		});
 		
-		/*//Slider panel
-		slideText.setText("Enter Name");
-		sliding.setLayout(new GridLayout(1, 2, 5, 0));
-		sliding.add(slideText);
-		sliding.add(slide);
-		*/
+		defaultB.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("Default settings button");
+			}
+		});
+		
+		buildB.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				System.out.println("Build button");
+			}
+		});
+		
+		//Listeners for slider and textfield
+		slider.addChangeListener(new ChangeListener() 
+		{
+			public void stateChanged(ChangeEvent e) 
+			{
+				fuelAmount.setText("Fuel Amount: " + slider.getValue());
+			}
+		});
+		
+		slideText.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				name.setText("Player Name: " + slideText.getText());
+			}
+		});
 	
 		//Frame
 		Container main = frame.getContentPane();
@@ -138,24 +148,15 @@ public class Creator
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.PAGE_START;
 		c.insets = new Insets(5, 10, 5, 10);
-		sliding.add(fuel, c);
-		
-		c.weightx = 0.5;
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 1;
-		c.gridy = 0;
-		c.anchor = GridBagConstraints.PAGE_START;
-		c.insets = new Insets(5, 10, 5, 10);
-		sliding.add(slide, c);
-		
-		c.weightx = 0.5;
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.gridx = 1;
-		c.gridy = 0;
-		c.anchor = GridBagConstraints.PAGE_START;
-		c.insets = new Insets(5, 10, 5, 10);
 		sliding.add(fuelAmount, c);
-
+		
+		c.weightx = 0.5;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.insets = new Insets(5, 10, 5, 10);
+		sliding.add(slider, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
@@ -173,12 +174,13 @@ public class Creator
 		c.insets = new Insets(5, 10, 5, 10);
 		sliding.add(slideText, c);
 		
+		//Main frame
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 0;
 		c.anchor = GridBagConstraints.PAGE_END;
-		c.insets = new Insets(10, 10, 0, 10);
+		c.insets = new Insets(0, 10, 0, 10);
 		main.add(view, c);
 		
 		c.weightx = 0.5;
@@ -191,12 +193,10 @@ public class Creator
 		main.add(buttons, c);
 
 		c.weightx = 0.5;
-		c.weighty = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.gridx = 0;
 		c.gridy = 2;
 		c.anchor = GridBagConstraints.PAGE_END;
-		c.insets = new Insets(10, 0, 0, 0);
 		main.add(sliding, c);
 		
 		frame.pack();
