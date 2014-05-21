@@ -12,7 +12,7 @@ import utils.Vector;
 public class Body {
 	private String name;
 	private BigDecimal weight; // Weight in kg
-	private int size;
+	private int size, radius;
 	private Vector location; // in m, m, m
 	private Vector velocity; //in m, m, m
 	private Color color;
@@ -21,15 +21,17 @@ public class Body {
 	 * Creates a new Body with the values used.
 	 * @param name The Body's name (as the name of a planet...!).
 	 * @param weight The Body's weight.
-	 * @param size The Body's radius (just for circular bodies)
+	 * @param size The Body's radius for drawing
+     * @param
 	 * @param location The vector containing the position in a 2D space of the Body.
 	 * @param velocity The vector containing the velocity in a 2D space of the Body.
 	 * @param color The Body's color.
 	 */
-	public Body(String name, BigDecimal weight, int size, Vector location,  Vector velocity, Color color) {
+	public Body(String name, BigDecimal weight, int size, int radius, Vector location,  Vector velocity, Color color) {
 		this.name = name;
 		this.weight = weight;
 		this.size = size;
+        this.radius = radius;
 		this.location = location;
 		this.velocity = velocity;
 		this.color = color;
@@ -73,7 +75,7 @@ public class Body {
 	
 	/**
 	 * Used for getting the Body's size.
-	 * @return An integer with the Body's radius.
+	 * @return An integer with the Body's graphical size.
 	 */
 	public int getSize() {
 		return size;
@@ -81,11 +83,27 @@ public class Body {
 
 	/**
 	 * Used for setting the Body's radius.
-	 * @param size An integer with the new Body's radius.
+	 * @param size An integer with the new Body's graphical size.
 	 */
 	public void setSize(int size) {
 		this.size = size;
 	}
+
+    /**
+     * Used for getting the Body's radius.
+     * @return An integer with the Body's radius.
+     */
+    public int getRadius() {
+        return radius;
+    }
+
+    /**
+     * Used for setting the Body's radius.
+     * @param radius An integer with the new Body's radius.
+     */
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
 
 	/**
 	 * Used for getting the Body's position.

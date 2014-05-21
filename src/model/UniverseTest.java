@@ -25,9 +25,9 @@ public class UniverseTest {
 	public void testGetBodies() {
 		
 		Body[] test = new Body[3];
-		test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
 
 		u.add(test[0]);
 		u.add(test[1]);
@@ -45,9 +45,9 @@ public class UniverseTest {
     @Test
 	public void testSetBodies() {
     	Body[] test = new Body[3];
-    	test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+    	test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
 		
 		u.add(test[0]);
 		u.add(test[1]);
@@ -71,9 +71,9 @@ public class UniverseTest {
     @Test
 	public void testAdd() {
     	Body[] test = new Body[3];
-    	test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+    	test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
     	
 		u.add(test[0]);
 		u.add(test[1]);
@@ -92,9 +92,9 @@ public class UniverseTest {
 	public void testToString() {
 		
 		Body[] test = new Body[3];
-		test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
-		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[0] = new Body("Mercury",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[1] = new Body("Marte",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
+		test[2] = new Body("venus",ConstantsUniverse.MERCURY_MASS,ConstantsUniverse.MERCURY_SIZE,ConstantsUniverse.MERCURY_RADIUS,new Vector(new BigDecimal("-42471132551"),new BigDecimal("-39584006147")),new Vector((new BigDecimal("32486.6269444444")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL)),(new BigDecimal("-35094.635")).multiply(new BigDecimal(ConstantsSpaceGame.INTERVAL))), Color.gray);
     	
 		u.add(test[0]);
 		u.add(test[1]);

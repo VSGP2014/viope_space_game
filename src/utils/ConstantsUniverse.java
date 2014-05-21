@@ -33,8 +33,7 @@ public class ConstantsUniverse {
 	public static BigDecimal TITAN_MASS = 		new BigDecimal("134520000000000000000000");
 	public static BigDecimal TITANIA_MASS = 	new BigDecimal("352700000000000000000");
 	public static BigDecimal TRITON_MASS = 		new BigDecimal("21400000000000000000000");
-	
-	
+
 	// Size - in the comments is the mean radius
 	//- Planets
 	public static int SOL_SIZE = 40; //695508 km
@@ -61,8 +60,34 @@ public class ConstantsUniverse {
 	public static int TITANIA_SIZE = 5; //788 km
 	public static int TITAN_SIZE =  12; //2576 km
 	public static int TRITON_SIZE = 8; //1353 km
-	
-		
+
+    // Radius in meters
+    //- Planets
+    public static int SOL_RADIUS = 695508000;
+    public static int MERCURY_RADIUS = 2439000;
+    public static int VENUS_RADIUS  = 6051000;
+    public static int EARTH_RADIUS  = 6371000;
+    public static int MARS_RADIUS  = 3389000;
+    public static int JUPITER_RADIUS  = 69911000;
+    public static int SATURN_RADIUS  = 58232000;
+    public static int URANUS_RADIUS  = 25362000;
+    public static int NEPTUNE_RADIUS  = 24622000;
+    public static int PLUTO_RADIUS  =  1184000;
+    //- Moons
+    public static int MOON_RADIUS  =  1737000;
+    public static int IO_RADIUS  = 1821000;
+    public static int EUROPA_RADIUS  =  1560000;
+    public static int GANYMEDE_RADIUS  = 2634000;
+    public static int CALLISTO_RADIUS  = 2410000;
+    public static int MIMAS_RADIUS  = 198000;
+    public static int IAPETUS_RADIUS  = 735000;
+    public static int TETHYS_RADIUS  = 531000;
+    public static int DIONE_RADIUS  = 561000;
+    public static int RHEA_RADIUS = 764000;
+    public static int TITANIA_RADIUS  = 788000;
+    public static int TITAN_RADIUS  =  2576000;
+    public static int TRITON_RADIUS  = 1353000;
+
 	// Orbits in m
 	//- Planets
 	public static BigDecimal SOL_ORBIT =        new BigDecimal("0");

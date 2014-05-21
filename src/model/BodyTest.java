@@ -13,7 +13,7 @@ import utils.*;
 
 public class BodyTest {
 
-	Body body= new Body ("test",new BigDecimal("123"), 123, new Vector(new BigDecimal ("123"), new BigDecimal("123")), new Vector(new BigDecimal ("123"), new BigDecimal("123")), Color.red);
+	Body body= new Body ("test",new BigDecimal("123"), 123,123, new Vector(new BigDecimal ("123"), new BigDecimal("123")), new Vector(new BigDecimal ("123"), new BigDecimal("123")), Color.red);
 	
 	@Test
 	public void testLocation() {
@@ -81,7 +81,7 @@ public class BodyTest {
 	
 	@Test
 	public void testBody() {
-		Body body1=new Body("test",new BigDecimal("20"), 100,new Vector(new BigDecimal("20"),new BigDecimal("130")),new Vector(new BigDecimal("10"),new BigDecimal("10")),Color.black);
+		Body body1=new Body("test",new BigDecimal("20"), 100, 100,new Vector(new BigDecimal("20"),new BigDecimal("130")),new Vector(new BigDecimal("10"),new BigDecimal("10")),Color.black);
 		assertNotNull(body1.getName());
 		assertNotNull(body1.getColor());
 		assertNotNull(body1.getLocation());
@@ -139,7 +139,7 @@ public class BodyTest {
 	
 	@Test
 	public void testGetDistance(){
-		Body other= new Body("Tests",new BigDecimal("50"),100,new Vector(new BigDecimal("50"),new BigDecimal("50")),new Vector(new BigDecimal("50"),new BigDecimal("50")),Color.BLACK);
+		Body other= new Body("Tests",new BigDecimal("50"),100,100,new Vector(new BigDecimal("50"),new BigDecimal("50")),new Vector(new BigDecimal("50"),new BigDecimal("50")),Color.BLACK);
 		BigDecimal num= body.getDistance(other);
 		BigDecimal num2 = body.getLocation().getDistance(other.getLocation()); 
 		assertEquals(num,num2);

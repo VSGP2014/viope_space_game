@@ -33,7 +33,7 @@ public class Game {
 	}
 	
 	public Body makeSpaceship(){
-			Body spaceship = new Body("Red Dwarf",new BigDecimal("10000000000"),10,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("-360000000"), new BigDecimal("-360000000")),Color.red);
+			Body spaceship = new Body("Red Dwarf",new BigDecimal("10000000000"),10,10,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("-360000000"), new BigDecimal("-360000000")),Color.red);
 		return spaceship;
 	}
 	
@@ -56,6 +56,10 @@ public class Game {
 		int month = day*30;
 		int year = month*12;
 
+        System.out.println((new BigDecimal(ConstantsUniverse.SOL_RADIUS)).toString());
+        System.out.println(ConstantsSpaceGame.LANDED.toString());
+        System.out.println((new BigDecimal(ConstantsUniverse.SOL_RADIUS).add(ConstantsSpaceGame.LANDED)).toString());
+
 		for (int i = 0; i < 2*week;i++){
 			universe.move();
 		}
@@ -69,7 +73,7 @@ public class Game {
 			universe.move();
 			spaceGUI.repaint();
 			BigDecimal distanceToSun = spaceship.getDistance(sun);
-			if(distanceToSun.compareTo(ConstantsSpaceGame.MINIMUMDISTANCE)==-1){
+			if(distanceToSun.compareTo(ConstantsSpaceGame.MINIMUMDISTANCE.add(new BigDecimal(ConstantsUniverse.SOL_RADIUS)))==-1){
 				gameOver= true;
 				JOptionPane.showMessageDialog(null, "\tOh no! \nYou just crashed into the sun!");
 				System.out.println("The " + spaceship.getName() + " just crashed on the sun!");
@@ -87,9 +91,9 @@ public class Game {
 					Body body = bodies[i];
 					if (!(body.equals(spaceship))) {
 						BigDecimal distance = spaceship.getDistance(body);
-						if(distance.compareTo(ConstantsSpaceGame.MINIMUMDISTANCE)==-1) {
+						if(distance.compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1) {
 							System.out.println("The " + spaceship.getName() + " landed on "+ body.getName()+".");
-						} else if (((distance.add(distances[i].negate())).abs()).compareTo(ConstantsSpaceGame.MINIMUMDISTANCE)==-1){
+						} else if (((distance.add(distances[i].negate())).abs()).compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1){
 							System.out.println("The " + spaceship.getName() + " is in a stationary orbit around" + body.getName()+".");
 						}
 					}
@@ -113,16 +117,16 @@ public class Game {
 		switch (direction) 
 			{
 			case 0: //UP
-				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("999999999")));
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("100000000")));
 				break;
 			case 1: //DOWN
-				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("-999999999")));
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("-100000000")));
 				break;
 			case 2: //LEFT
-				universe.accelerateShip(new Vector(new BigDecimal("-999999999"),new BigDecimal("0")));
+				universe.accelerateShip(new Vector(new BigDecimal("-100000000"),new BigDecimal("0")));
 				break;
 			case 3: //RIGHT
-				universe.accelerateShip(new Vector(new BigDecimal("999999999"),new BigDecimal("0")));
+				universe.accelerateShip(new Vector(new BigDecimal("100000000"),new BigDecimal("0")));
 				break;
 			}
 	}
