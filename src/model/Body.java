@@ -67,6 +67,10 @@ public class Body {
 		this.weight = weight;
 	}
 	
+	public void setWeight(String weight) {
+		this.weight = new BigDecimal(weight);
+	}
+	
 	/**
 	 * Used for getting the Body's size.
 	 * @return An integer with the Body's radius.
