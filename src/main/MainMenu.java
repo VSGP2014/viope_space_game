@@ -17,13 +17,13 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 
 public class MainMenu implements ActionListener{
-	private static SpaceGUI spaceGUI;
+	//private static SpaceGUI spaceGUI;
 	private JFrame frame = new JFrame("SpaceGame");
 	JFrame scoreFrame= new JFrame("Scores");
 	JFrame aboutFrame= new JFrame("About");
 
 	public MainMenu(){
-		JFrame frame = new JFrame("SpaceGame");
+		//JFrame frame = new JFrame("SpaceGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(800,800));
 		
@@ -196,12 +196,13 @@ public class MainMenu implements ActionListener{
 		String command=arg0.getActionCommand();
 		switch (command)
 		{
-			case "Quit" :
+			case "Quit" :				
 				System.exit(0);
 				break;
-			case "Start" :				
-				Creator creator= new Creator();
+			case "Start" :		
 				frame.dispose();
+				Creator creator= new Creator();
+				//frame.dispose();
 				//SpaceGame.StartGame();				
 				break;
 			case "Scores" :

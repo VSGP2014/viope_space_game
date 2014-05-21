@@ -3,10 +3,13 @@ package main;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.SecondaryLoop;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ import javax.swing.JTextPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Creator 
+public class Creator
 {
 	private ArrayList<Icon> objects = new ArrayList<Icon>();
 	JFrame frame = new JFrame();
@@ -45,6 +48,11 @@ public class Creator
 	Icon seven = new Icon(Color.white, 150, 150, 7);
 	Icon eight = new Icon(Color.cyan, 150, 150, 8);
 	Icon nine = new Icon(Color.magenta, 150, 150, 9);
+	
+	Toolkit toolkit = Toolkit.getDefaultToolkit();
+	EventQueue eq= toolkit.getSystemEventQueue();
+	SecondaryLoop loop=eq.createSecondaryLoop();
+    Thread worker = new WorkerThread();
 	
 	public Creator()
 	{
@@ -95,7 +103,9 @@ public class Creator
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				System.out.println("Add button");
+				new MainMenu();
+				frame.dispose();
+				//System.out.println("Add button");
 			}
 		});
 		
@@ -111,7 +121,12 @@ public class Creator
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
+				frame.dispose();
 				System.out.println("Build button");
+				worker.start();
+		           if (!loop.enter()) {
+		               // Report an error
+		           }
 			}
 		});
 		
@@ -201,5 +216,32 @@ public class Creator
 		
 		frame.pack();
 		}
+	private static SpaceGUI spaceGUI;
+	   class WorkerThread extends Thread {
+	       @Override
+	       public void run() {
+				spaceGUI = new SpaceGUI();
+				JFrame spaceFrame = new JFrame();
+				
+				Dimension screenSize = new Dimension(800,800);
+				Container cp = spaceFrame.getContentPane();
+				cp.setBackground(Color.black);
+				spaceFrame.setSize(screenSize.width*10/7,screenSize.height*10/7);
+				spaceFrame.setLocationByPlatform(true);
+				spaceFrame.add(spaceGUI);
+				spaceFrame.setTitle("Space Game");
+				spaceFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				spaceFrame.setVisible(true);
+				// Start the game
+				Game game = new Game();
+				//game.setInitialVelocity(xVel, yVel);
+				spaceGUI.setGame(game);
+				game.setSpaceGUI(spaceGUI);
+				game.runGame();	           
+
+	           // Exit the loop
+	           loop.exit();
+	       }
+	   }
 
 }

@@ -75,6 +75,7 @@ public class Editor extends JFrame
 				System.out.println("Committed");
 				
 				//Editor.this.dispose();
+				frame.dispose();
 				Editor.this.dispatchEvent(new WindowEvent(Editor.this, WindowEvent.WINDOW_CLOSING));
 				Editor.this.icon.active = false;
 				System.out.println(Editor.this.icon.id + " is inactive!");
