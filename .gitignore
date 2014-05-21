@@ -1,2 +1,7 @@
 # Files to not be tracked
+# Build directory
 bin/
+
+# IntelliJ IDEA files
+.idea/
+*.iml
