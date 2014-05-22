@@ -7,13 +7,21 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
 import java.awt.SecondaryLoop;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,10 +32,12 @@ import javax.swing.JTextPane;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
-public class Creator
+import model.Universe;
+
+public class Creator extends JFrame
 {
 	private ArrayList<Icon> objects = new ArrayList<Icon>();
-	JFrame frame = new JFrame();
+	boolean shift;
 	JPanel view = new JPanel();
 	JPanel buttons = new JPanel();
 	JPanel sliding = new JPanel();
@@ -39,16 +49,9 @@ public class Creator
 	JSlider slider = new JSlider(0,500,250);
 	JLabel  fuelAmount= new JLabel("Fuel Quantity: " + slider.getValue());
 	
-	Icon one = new Icon(Color.red, 150, 150, 1);
-	Icon two = new Icon(Color.orange, 150, 150, 2);
-	Icon three = new Icon(Color.blue, 150, 150, 3);
-	Icon four = new Icon(Color.green, 150, 150, 4);
-	Icon five = new Icon(Color.yellow, 150, 150, 5);
-	Icon six = new Icon(Color.orange, 150, 150, 6);
-	Icon seven = new Icon(Color.white, 150, 150, 7);
-	Icon eight = new Icon(Color.cyan, 150, 150, 8);
-	Icon nine = new Icon(Color.magenta, 150, 150, 9);
+
 	
+	Universe tempUni = new Universe();
 	Toolkit toolkit = Toolkit.getDefaultToolkit();
 	EventQueue eq= toolkit.getSystemEventQueue();
 	SecondaryLoop loop=eq.createSecondaryLoop();
@@ -56,12 +59,97 @@ public class Creator
 	
 	public Creator()
 	{
-		frame.setSize(500, 500);
-		frame.setLocationByPlatform(true);
-		frame.setTitle("Edit Universe");
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);
+		//Images
+		BufferedImage mercury = null;
+		BufferedImage venus = null;
+		BufferedImage earth = null;
+		BufferedImage mars = null;
+		BufferedImage jupiter = null;
+		BufferedImage saturn = null;
+		BufferedImage uranus = null;
+		BufferedImage neptune = null;
+		BufferedImage sun = null;
+		try{
+			mercury = ImageIO.read(getClass().getResource("mercury.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			venus = ImageIO.read(getClass().getResource("venus.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			earth = ImageIO.read(getClass().getResource("earth.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			mars = ImageIO.read(getClass().getResource("mars.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			jupiter = ImageIO.read(getClass().getResource("jupiter.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			saturn = ImageIO.read(getClass().getResource("saturn.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			uranus = ImageIO.read(getClass().getResource("uranus.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			neptune = ImageIO.read(getClass().getResource("neptune.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		try{
+			sun = ImageIO.read(getClass().getResource("sun.png"));
+		}
+		catch (IOException ex) {
+		System.out.println("Herp derp no image");
+		}
+		
+		Icon one = new Icon(Color.red, sun, 150, 150, 1);
+		Icon two = new Icon(Color.orange, mercury, 150, 150, 2);
+		Icon three = new Icon(Color.blue, venus, 150, 150, 3);
+		Icon four = new Icon(Color.green, earth, 150, 150, 4);
+		Icon five = new Icon(Color.yellow, mars, 150, 150, 5);
+		Icon six = new Icon(Color.orange, jupiter, 150, 150, 6);
+		Icon seven = new Icon(Color.white, saturn, 150, 150, 7);
+		Icon eight = new Icon(Color.cyan, uranus, 150, 150, 8);
+		Icon nine = new Icon(Color.magenta, neptune, 150, 150, 9);
+		
+		this.shift = false;
+		
+		setSize(500, 500);
+		setLocationByPlatform(true);
+		setTitle("Edit Universe");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setResizable(false);
+		setVisible(true);
 		
 		//Main View
 		objects.add(one);
@@ -104,7 +192,7 @@ public class Creator
 			public void actionPerformed(ActionEvent e) 
 			{
 				new MainMenu();
-				frame.dispose();
+				dispose();
 				//System.out.println("Add button");
 			}
 		});
@@ -121,7 +209,7 @@ public class Creator
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				frame.dispose();
+				dispose();
 				System.out.println("Build button");
 				worker.start();
 		           if (!loop.enter()) {
@@ -146,9 +234,38 @@ public class Creator
 				name.setText("Player Name: " + slideText.getText());
 			}
 		});
+		
+		//Listener for Shift Key
+		
+		addKeyListener(new KeyAdapter(){
+			
+			public void keyPressed(KeyEvent e) 
+			{
+				System.out.println("You pressed a button");
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
+				{
+					Creator.this.shift = true;
+					System.out.println("Shift is Pressed");
+				}
+			}
+
+			public void keyReleased(KeyEvent e) 
+			{
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE)
+				{
+					Creator.this.shift = false;
+					System.out.println("Shift is Released");
+				}
+			}
+
+			public void keyTyped(KeyEvent e) 
+			{
+
+			}
+		});
 	
 		//Frame
-		Container main = frame.getContentPane();
+		Container main = getContentPane();
 		main.setBackground(Color.black);
 		
 		main.setLayout(new GridBagLayout());
@@ -214,8 +331,9 @@ public class Creator
 		c.anchor = GridBagConstraints.PAGE_END;
 		main.add(sliding, c);
 		
-		frame.pack();
-		}
+		pack();
+	}
+	
 	private static SpaceGUI spaceGUI;
 	   class WorkerThread extends Thread {
 	       @Override
@@ -243,5 +361,4 @@ public class Creator
 	           loop.exit();
 	       }
 	   }
-
 }

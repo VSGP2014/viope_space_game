@@ -4,6 +4,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -201,7 +204,26 @@ public class MainMenu implements ActionListener{
 				break;
 			case "Start" :		
 				frame.dispose();
-				Creator creator= new Creator();
+				new Creator().addKeyListener(new KeyAdapter() {
+					
+					public void keyTyped(KeyEvent e) 
+					{
+						System.out.println("Anything");
+					}
+					
+					public void keyReleased(KeyEvent e) 
+					{
+
+					}
+					
+					public void keyPressed(KeyEvent e) 
+					{
+						if (e.getKeyCode() == KeyEvent.VK_A)
+						{
+							System.out.println("Lollissimo");
+						}
+					}
+				});
 				//frame.dispose();
 				//SpaceGame.StartGame();				
 				break;
