@@ -82,7 +82,7 @@ public class Game {
 			} else if (movements>year*ConstantsSpaceGame.YEARSSUPPLY) {
 				JOptionPane.showMessageDialog(null, "No more food or water available in the " + spaceship.getName() + ".\nThe entire crew just died.");
 				System.out.println("No more food or water available in the " + spaceship.getName() + ". The entire crew just died.");
-				gameOver= true;
+				gameOver=true;
 			} else {
 				for(int i = 0; i < nr; i++) {
 					Body body = bodies[i];
@@ -91,9 +91,11 @@ public class Game {
 						if(distance.compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1) {
 							JOptionPane.showMessageDialog(null, "The " + spaceship.getName() + " landed on "+ body.getName()+".");
 							System.out.println("The " + spaceship.getName() + " landed on "+ body.getName()+".");
+							gameOver=true;
 						} else if (((distance.add(distances[i].negate())).abs()).compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1){
 							JOptionPane.showMessageDialog(null, "The " + spaceship.getName() + " is in a stationary orbit around" + body.getName()+".");
 							System.out.println("The " + spaceship.getName() + " is in a stationary orbit around" + body.getName()+".");
+							gameOver=true;
 						}
 					}
 				}

@@ -63,7 +63,7 @@ public class SpaceGUI extends JPanel {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if(fuel>0){
-				//fuel--;
+				fuel--;
 				if(e.getKeyCode()==KeyEvent.VK_UP)
 					game.accelerateSpaceShip(0);
 				if(e.getKeyCode()==KeyEvent.VK_DOWN)

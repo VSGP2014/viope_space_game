@@ -223,7 +223,7 @@ public class Creator
 	       @Override
 	       public void run() {
 				spaceGUI = new SpaceGUI();
-				spaceGUI.setFuel(slider.getValue()*10000);
+				spaceGUI.setFuel(slider.getValue()*20);
 				// Start the game
 				Game game = new Game();
 				//game.setInitialVelocity(xVel, yVel);
