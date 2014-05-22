@@ -238,8 +238,11 @@ public class Creator
 				spaceFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				spaceFrame.setVisible(true);
 				game.runGame();
-	           // Exit the loop
-	           loop.exit();
+				// Return to the menu
+				spaceFrame.dispose();
+				EventQueue.invokeLater(MainMenu.createMenu());
+				// Exit the loop
+				loop.exit();
 	       }
 	   }
 

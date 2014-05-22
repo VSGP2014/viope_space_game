@@ -21,8 +21,8 @@ public class Body {
 	 * Creates a new Body with the values used.
 	 * @param name The Body's name (as the name of a planet...!).
 	 * @param weight The Body's weight.
-	 * @param size The Body's radius for drawing
-     * @param
+	 * @param size The Body's radius for drawing its oval.
+     * @param radius The Body's effective radius.
 	 * @param location The vector containing the position in a 2D space of the Body.
 	 * @param velocity The vector containing the velocity in a 2D space of the Body.
 	 * @param color The Body's color.

@@ -80,7 +80,8 @@ public class Game {
 			} else if (distanceToSun.compareTo(ConstantsUniverse.PLUTO_ORBIT)==1){
 					if(isTooFast(SolarSystem.body[0])) // Too fast for the Sun
 						if(isTooFast(SolarSystem.body)){ // Too fast for the system
-							System.out.println("The" + spaceship.getName() + " is lost in space!");
+							JOptionPane.showMessageDialog(null,"The " + spaceship.getName() + " is lost in space!");
+							System.out.println("The " + spaceship.getName() + " is lost in space!");
 							gameOver= true;
 						}
 			} else if (movements>year*ConstantsSpaceGame.YEARSSUPPLY) {

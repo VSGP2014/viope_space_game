@@ -1,6 +1,8 @@
 # Files to not be tracked
 # Build directory
 bin/
+out/
+src/META-INF/
 
 # IntelliJ IDEA files
 .idea/

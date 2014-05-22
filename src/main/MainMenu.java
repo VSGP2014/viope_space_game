@@ -237,7 +237,7 @@ public class MainMenu implements ActionListener{
 		player.setFont(font);
 		JButton back=new JButton("Back");
 		back.setSize(150,50);
-		back.setLocation(250,700);
+		back.setLocation(250,600);
 		back.addActionListener(this);
 		back.setActionCommand("ScoresBack");
 		scoreFrame.getContentPane().add(player);
@@ -253,12 +253,12 @@ public class MainMenu implements ActionListener{
 		aboutFrame.setPreferredSize(new Dimension(800,800));
 		JButton back=new JButton("Back");
 		back.setSize(150,50);
-		back.setLocation(250,700);
+		back.setLocation(250,600);
 		back.addActionListener(this);
 		back.setActionCommand("AboutBack");
-		JLabel info=new JLabel("The best Space Game evah... AND IT WORKS! :D");
+		JLabel info=new JLabel("The best Space Game evah... \nAND IT WORKS! :D");
 		info.setLocation(150,100);
-		info.setSize(250,100);
+		info.setSize(350,100);
 		aboutFrame.getContentPane().add(info);
 		aboutFrame.getContentPane().add(back);
 		aboutFrame.getContentPane().setLayout(null);
