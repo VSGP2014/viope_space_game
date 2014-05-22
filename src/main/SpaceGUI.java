@@ -1,9 +1,7 @@
 package main;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import utils.ConstantsSpaceGame;
@@ -32,13 +30,13 @@ public class SpaceGUI extends JPanel {
 		KeyListener listener=new MyKeyListener();
 		addKeyListener(listener);
 		setFocusable(true);
-		
 	}
-	public void setFuel(double fuel)
-	{
+	
+	public void setFuel(double fuel){
 		this.fuel=fuel;
 		origFuel=fuel;
 	}
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		double x, y;
@@ -66,8 +64,7 @@ public class SpaceGUI extends JPanel {
 
 		@Override
 		public void keyPressed(KeyEvent e) {
-			if(fuel>0)
-			{
+			if(fuel>0){
 				fuel--;
 				if(e.getKeyCode()==KeyEvent.VK_UP)
 					game.accelerateSpaceShip(0);
@@ -78,14 +75,10 @@ public class SpaceGUI extends JPanel {
 				if(e.getKeyCode()==KeyEvent.VK_RIGHT)
 					game.accelerateSpaceShip(3);
 			}
-			else
-			{
-				
-			}
 		}
+		
 		@Override
 		public void keyReleased(KeyEvent e) {
-			
 		}
 	}
 }

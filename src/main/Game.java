@@ -33,12 +33,7 @@ public class Game {
 	}
 	
 	public Body makeSpaceship(){
-			Body spaceship = new Body("Red Dwarf",new BigDecimal("10000000000"),10,10,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("-360000000"), new BigDecimal("-360000000")),Color.red);
-		return spaceship;
-	}
-	
-	public void setInitialVelocity(BigDecimal xVel, BigDecimal yVel){
-		spaceship.setVelocity(new Vector(xVel,yVel));
+		return new Body("Red Dwarf",new BigDecimal("10000"),5,5,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("0"), new BigDecimal("0")),Color.red);
 	}
 	
 	public void runGame(){
@@ -85,6 +80,7 @@ public class Game {
 							gameOver= true;
 						}
 			} else if (movements>year*ConstantsSpaceGame.YEARSSUPPLY) {
+				JOptionPane.showMessageDialog(null, "No more food or water available in the " + spaceship.getName() + ".\nThe entire crew just died.");
 				System.out.println("No more food or water available in the " + spaceship.getName() + ". The entire crew just died.");
 				gameOver= true;
 			} else {
@@ -93,8 +89,10 @@ public class Game {
 					if (!(body.equals(spaceship))) {
 						BigDecimal distance = spaceship.getDistance(body);
 						if(distance.compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1) {
+							JOptionPane.showMessageDialog(null, "The " + spaceship.getName() + " landed on "+ body.getName()+".");
 							System.out.println("The " + spaceship.getName() + " landed on "+ body.getName()+".");
 						} else if (((distance.add(distances[i].negate())).abs()).compareTo(ConstantsSpaceGame.LANDED.add(new BigDecimal(body.getRadius())))==-1){
+							JOptionPane.showMessageDialog(null, "The " + spaceship.getName() + " is in a stationary orbit around" + body.getName()+".");
 							System.out.println("The " + spaceship.getName() + " is in a stationary orbit around" + body.getName()+".");
 						}
 					}
@@ -111,10 +109,8 @@ public class Game {
 	public void setSpaceGUI(SpaceGUI spaceGUI) {
 		this.spaceGUI = spaceGUI;
 	}
+	
 	public void accelerateSpaceShip(int direction){
-		//spaceship.setLocation(new Vector(new BigDecimal("500"),new BigDecimal("500")));
-		//spaceship.move(new Vector(new BigDecimal("100000000"),new BigDecimal("1000000000")));
-		//spaceship.setVelocity(new Vector(new BigDecimal("-999999999"),new BigDecimal("-999999999")));
 		switch (direction) 
 			{
 			case 0: //UP

@@ -157,7 +157,7 @@ public class TestVector {
 		for(int i = 1; i<=c;i++){
 			d =new BigDecimal( b.nextInt(20000000));
 			test = new Vector(d,d);
-			if(test.getLength().equals(test.sqrt(d.multiply(d).add(d.multiply(d)))))
+			if(test.getLength().equals(Vector.sqrt(d.multiply(d).add(d.multiply(d)))))
 				j++;
 		}
 		
@@ -174,23 +174,20 @@ public class TestVector {
 		for(int i = 1; i<=c;i++){
 			d =new BigDecimal( b.nextInt(20000000));
 			test = new Vector(d,d);
-			if(test.getDistance(new Vector(BigDecimal.ONE,BigDecimal.ONE)).equals(test.sqrt(d.add(BigDecimal.ONE.negate()))))
+			if(test.getDistance(new Vector(BigDecimal.ONE,BigDecimal.ONE)).equals(Vector.sqrt(d.add(BigDecimal.ONE.negate()))))
 				j++;
 		}
-		
-		
+		assertTrue(j == c);
 	}
 	
 	@Test
 	public void isCorrectSqrt(){
 		BigDecimal d;
-		Vector test;
 		int j=0,c=40,r;
 		Random b = new Random();
 		for(int i = 1; i<=c;i++){
-			d =new BigDecimal( r = b.nextInt(20000000));
-			test = new Vector(d,d);
-			if((test.sqrt(d).setScale(15, ConstantsSpaceGame.ROUND)).equals((new BigDecimal(Math.sqrt(r))).setScale(15, ConstantsSpaceGame.ROUND)))
+			d = new BigDecimal(r = b.nextInt(20000000));
+			if((Vector.sqrt(d).setScale(15, ConstantsSpaceGame.ROUND)).equals((new BigDecimal(Math.sqrt(r))).setScale(15, ConstantsSpaceGame.ROUND)))
 				j++;
 		}
 			assertTrue(j == c);
@@ -211,8 +208,6 @@ public class TestVector {
 				j++;
 		}
 			assertTrue(j == c);
-		
-		
 	}
 	
 	
