@@ -69,7 +69,7 @@ public class Universe {
 	public void accelerateShip(Vector vector){
 		for(int i=0;i<bodies.length;i++){
 			//bodies[i].setVelocity(new Vector(new BigDecimal("999999999"),new BigDecimal("999999999")));
-			if(bodies[i].getName().equals("Red Dwarf")){
+			if(bodies[i].getName().equals(ConstantsSpaceGame.PLAYER+"'s spaceship")){
 				vector=vector.add(bodies[i].getVelocity());
 				bodies[i].setVelocity(vector);
 				break;

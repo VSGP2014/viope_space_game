@@ -17,4 +17,6 @@ public class ConstantsSpaceGame {
 	public static final BigDecimal LOST = ConstantsUniverse.PLUTO_ORBIT.add(MINIMUMDISTANCE);
 	//The amount of years the crew can survive on the food and drink supply
 	public static final int YEARSSUPPLY = 4;
+	// The player name (can be changed)
+	public static String PLAYER = "Player";
 }

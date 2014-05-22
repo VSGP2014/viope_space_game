@@ -33,7 +33,7 @@ public class Game {
 	}
 	
 	public Body makeSpaceship(){
-		return new Body("Red Dwarf",new BigDecimal("10000"),5,5,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("0"), new BigDecimal("0")),Color.red);
+		return new Body(ConstantsSpaceGame.PLAYER+"'s spaceship",new BigDecimal("2000000"),5,5,new Vector(ConstantsUniverse.URANUS_ORBIT,ConstantsUniverse.URANUS_ORBIT), new Vector(new BigDecimal("4000"), new BigDecimal("4000")),Color.red);
 	}
 	
 	public void runGame(){
@@ -111,19 +111,19 @@ public class Game {
 	}
 	
 	public void accelerateSpaceShip(int direction){
-		switch (direction) 
+		switch (direction) // 300 * 10500 = s * 250 -> 12500
 			{
 			case 0: //UP
-				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("100000000")));
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("12500000")));
 				break;
 			case 1: //DOWN
-				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("-100000000")));
+				universe.accelerateShip(new Vector(new BigDecimal("0"),new BigDecimal("-12500000")));
 				break;
 			case 2: //LEFT
-				universe.accelerateShip(new Vector(new BigDecimal("-100000000"),new BigDecimal("0")));
+				universe.accelerateShip(new Vector(new BigDecimal("-12500000"),new BigDecimal("0")));
 				break;
 			case 3: //RIGHT
-				universe.accelerateShip(new Vector(new BigDecimal("100000000"),new BigDecimal("0")));
+				universe.accelerateShip(new Vector(new BigDecimal("12500000"),new BigDecimal("0")));
 				break;
 			}
 	}

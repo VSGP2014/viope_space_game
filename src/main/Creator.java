@@ -23,6 +23,8 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import utils.ConstantsSpaceGame;
+
 public class Creator
 {
 	private ArrayList<Icon> objects = new ArrayList<Icon>();
@@ -142,7 +144,8 @@ public class Creator
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				name.setText("Player Name: " + slideText.getText());
+				ConstantsSpaceGame.PLAYER = slideText.getText();
+				name.setText("Player Name: " + ConstantsSpaceGame.PLAYER);
 			}
 		});
 	

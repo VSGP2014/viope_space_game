@@ -20,11 +20,9 @@ public class SpaceGUI extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	double fuel=100;
+	double fuel = 100;
 	double origFuel;
 	public SpaceGUI(){
-		//setBackground(new Color(0, 51, 102)); <- Blue background
-		//Creator c = new Creator();
 		setBackground(new Color(0, 0, 0));
 		setLayout(null);
 		KeyListener listener=new MyKeyListener();
@@ -65,7 +63,7 @@ public class SpaceGUI extends JPanel {
 		@Override
 		public void keyPressed(KeyEvent e) {
 			if(fuel>0){
-				fuel--;
+				//fuel--;
 				if(e.getKeyCode()==KeyEvent.VK_UP)
 					game.accelerateSpaceShip(0);
 				if(e.getKeyCode()==KeyEvent.VK_DOWN)
