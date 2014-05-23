@@ -31,6 +31,9 @@ import javax.swing.JTextField;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+import utils.ConstantsSpaceGame;
+import model.Universe;
+
 
 public class Creator extends JFrame
 {
