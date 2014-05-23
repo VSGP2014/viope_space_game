@@ -1,39 +1,21 @@
 package main;
 
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.SecondaryLoop;
-import java.awt.Toolkit;
+import model.Body;
+import model.Universe;
+import utils.ConstantsSpaceGame;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-
-import utils.ConstantsSpaceGame;
-import model.Body;
-import model.Universe;
 
 
 public class Creator extends JFrame
@@ -82,63 +64,63 @@ public class Creator extends JFrame
 		BufferedImage sun = null;
 		
 		try{
-			mercury = ImageIO.read(getClass().getResource("mercury.png"));
+			mercury = ImageIO.read(getClass().getResource("planets/mercury.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			venus = ImageIO.read(getClass().getResource("venus.png"));
+			venus = ImageIO.read(getClass().getResource("planets/venus.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			earth = ImageIO.read(getClass().getResource("earth.png"));
+			earth = ImageIO.read(getClass().getResource("planets/earth.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			mars = ImageIO.read(getClass().getResource("mars.png"));
+			mars = ImageIO.read(getClass().getResource("planets/mars.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			jupiter = ImageIO.read(getClass().getResource("jupiter.png"));
+			jupiter = ImageIO.read(getClass().getResource("planets/jupiter.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			saturn = ImageIO.read(getClass().getResource("saturn.png"));
+			saturn = ImageIO.read(getClass().getResource("planets/saturn.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			uranus = ImageIO.read(getClass().getResource("uranus.png"));
+			uranus = ImageIO.read(getClass().getResource("planets/uranus.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			neptune = ImageIO.read(getClass().getResource("neptune.png"));
+			neptune = ImageIO.read(getClass().getResource("planets/neptune.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
 		}
 		
 		try{
-			sun = ImageIO.read(getClass().getResource("sun.png"));
+			sun = ImageIO.read(getClass().getResource("planets/sun.png"));
 		}
 		catch (IOException ex) {
 		System.out.println("Herp derp no image");
