@@ -20,8 +20,8 @@ public class SpaceGUI extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	double fuel = 100;
-	double origFuel;
+	static double fuel = 100;
+	static double origFuel;
 	public SpaceGUI(){
 		setBackground(new Color(0, 0, 0));
 		setLayout(null);
@@ -31,7 +31,7 @@ public class SpaceGUI extends JPanel {
 	}
 	
 	public void setFuel(double fuel){
-		this.fuel=fuel;
+		fuel=fuel;
 		origFuel=fuel;
 	}
 	

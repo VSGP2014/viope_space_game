@@ -102,6 +102,10 @@ public class Game {
 			}
 		}
 		System.out.println(universe.toString());
+		BigDecimal percentage = Creator.start.getDistance(Creator.end).multiply(new BigDecimal(100)).divide(spaceship.getDistance(Creator.end));
+		BigDecimal maxScore = new BigDecimal((500-SpaceGUI.origFuel)+1000);
+		BigDecimal score = maxScore.divide(new BigDecimal(100)).multiply(percentage).add(new BigDecimal(SpaceGUI.fuel));
+		JOptionPane.showMessageDialog(null, spaceship.getName() + " score: " + score);
 	}
 
 	public Universe getUniverse() {
