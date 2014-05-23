@@ -51,10 +51,9 @@ public class Game {
 		int month = day*30;
 		int year = month*12;
 
-        System.out.println((new BigDecimal(ConstantsUniverse.SOL_RADIUS)).toString());
-        System.out.println(ConstantsSpaceGame.LANDED.toString());
-        System.out.println((new BigDecimal(ConstantsUniverse.SOL_RADIUS).add(ConstantsSpaceGame.LANDED)).toString());
-
+		// Start!
+		spaceship.setLocation(Creator.start.getLocation().add(new Vector(BigDecimal.ZERO, ConstantsSpaceGame.LANDED.multiply(BigDecimal.TEN).add(new BigDecimal(Creator.start.getRadius())))));
+		
 		for (int i = 0; i < 2*week;i++){
 			universe.move();
 		}
@@ -102,10 +101,11 @@ public class Game {
 			}
 		}
 		System.out.println(universe.toString());
-		BigDecimal percentage = Creator.start.getDistance(Creator.end).multiply(new BigDecimal(100)).divide(spaceship.getDistance(Creator.end));
+		BigDecimal percentage = Creator.start.getDistance(Creator.end).multiply(new BigDecimal(100)).divide(spaceship.getDistance(Creator.end),ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND);
 		BigDecimal maxScore = new BigDecimal((500-SpaceGUI.origFuel)+1000);
-		BigDecimal score = maxScore.divide(new BigDecimal(100)).multiply(percentage).add(new BigDecimal(SpaceGUI.fuel));
+		BigDecimal score = maxScore.divide(new BigDecimal(100),ConstantsSpaceGame.DECIMALS,ConstantsSpaceGame.ROUND).multiply(percentage).add(new BigDecimal(SpaceGUI.fuel));
 		JOptionPane.showMessageDialog(null, spaceship.getName() + " score: " + score);
+		MainMenu.player.setText(ConstantsSpaceGame.PLAYER + ": " + score);
 	}
 
 	public Universe getUniverse() {

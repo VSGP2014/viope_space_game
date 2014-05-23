@@ -22,7 +22,7 @@ import javax.swing.JTextArea;
 public class MainMenu implements ActionListener{
 	//private static SpaceGUI spaceGUI;
 	
-	private static JLabel player;
+	public static JLabel player = new JLabel("Player1: 103");;
 	private JFrame frame = new JFrame("SpaceGame");
 	JFrame scoreFrame= new JFrame("Scores");
 	JFrame aboutFrame= new JFrame("About");
@@ -233,7 +233,6 @@ public class MainMenu implements ActionListener{
 	{		
 		scoreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		scoreFrame.setPreferredSize(new Dimension(800,800));		
-		player = new JLabel("Player1: 103");
 		player.setLocation(100, 50);
 		player.setSize(400, 50);
 		Font font=new Font("Arial",0,22);

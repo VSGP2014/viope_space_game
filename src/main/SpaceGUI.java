@@ -31,7 +31,7 @@ public class SpaceGUI extends JPanel {
 	}
 	
 	public void setFuel(double fuel){
-		fuel=fuel;
+		SpaceGUI.fuel=fuel;
 		origFuel=fuel;
 	}
 	

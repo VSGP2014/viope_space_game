@@ -66,6 +66,10 @@ public class Creator extends JFrame
 	public Creator()
 	{
 		SolarSystem.populate();
+		start = SolarSystem.body[3];
+		end = SolarSystem.body[4];
+		startBody.setText("Start: " + Creator.start.getName());
+		endBody.setText("End: " + end.getName());
 		//Images
 		BufferedImage mercury = null;
 		BufferedImage venus = null;
