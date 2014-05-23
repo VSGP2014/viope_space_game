@@ -69,6 +69,7 @@ public class Creator extends JFrame
 		BufferedImage uranus = null;
 		BufferedImage neptune = null;
 		BufferedImage sun = null;
+		
 		try{
 			mercury = ImageIO.read(getClass().getResource("mercury.png"));
 		}

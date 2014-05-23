@@ -10,7 +10,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 public class Icon extends JPanel implements MouseListener
@@ -48,6 +50,7 @@ public class Icon extends JPanel implements MouseListener
 		/*g.setColor(Color.green);
 		g.setColor(this.color);
 		g.fillOval(5, 5, this.width - 10, this.height - 10);*/
+		
 		g.drawImage(this.image, 0, 0, null);
 		g.setColor(this.color);
 		g.fillRect(0, 10, 10, 10);
@@ -63,6 +66,84 @@ public class Icon extends JPanel implements MouseListener
 		{
 			System.out.println("Start Planet Set!");
 			this.indicator = Color.green;
+			switch(this.id)
+			{
+			case 1:
+				try{
+					this.image = ImageIO.read(getClass().getResource("sun.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 2:
+				try{
+					this.image = ImageIO.read(getClass().getResource("mercury.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 3:
+				try{
+					this.image = ImageIO.read(getClass().getResource("venus.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 4:
+				try{
+					this.image = ImageIO.read(getClass().getResource("earth.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 5:
+				try{
+					this.image = ImageIO.read(getClass().getResource("mars.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 6:
+				try{
+					this.image = ImageIO.read(getClass().getResource("jupiter.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 7:
+				try{
+					this.image = ImageIO.read(getClass().getResource("saturn.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 8:
+				try{
+					this.image = ImageIO.read(getClass().getResource("uranus.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 9:
+				try{
+					this.image = ImageIO.read(getClass().getResource("neptune.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			default:
+				System.out.println("No image Found!");
+				break;
+			}
 			repaint();
 		}
 		
@@ -71,6 +152,84 @@ public class Icon extends JPanel implements MouseListener
 		{
 			System.out.println("End Planet Set!");
 			this.indicator = Color.red;
+			switch(this.id)
+			{
+			case 1:
+				try{
+					this.image = ImageIO.read(getClass().getResource("sun.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 2:
+				try{
+					this.image = ImageIO.read(getClass().getResource("mercury.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 3:
+				try{
+					this.image = ImageIO.read(getClass().getResource("venus.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 4:
+				try{
+					this.image = ImageIO.read(getClass().getResource("earth.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 5:
+				try{
+					this.image = ImageIO.read(getClass().getResource("mars.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 6:
+				try{
+					this.image = ImageIO.read(getClass().getResource("jupiter.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 7:
+				try{
+					this.image = ImageIO.read(getClass().getResource("saturn.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 8:
+				try{
+					this.image = ImageIO.read(getClass().getResource("uranus.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			case 9:
+				try{
+					this.image = ImageIO.read(getClass().getResource("neptune.png"));
+				}
+				catch (IOException ex) {
+				System.out.println("Herp derp no image");
+				}
+				break;
+			default:
+				System.out.println("No image Found!");
+				break;
+			}
 			repaint();
 		}
 		
