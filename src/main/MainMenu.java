@@ -17,9 +17,12 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JTextArea;
 
 public class MainMenu implements ActionListener{
 	//private static SpaceGUI spaceGUI;
+	
+	private static JLabel player;
 	private JFrame frame = new JFrame("SpaceGame");
 	JFrame scoreFrame= new JFrame("Scores");
 	JFrame aboutFrame= new JFrame("About");
@@ -230,7 +233,7 @@ public class MainMenu implements ActionListener{
 	{		
 		scoreFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		scoreFrame.setPreferredSize(new Dimension(800,800));		
-		JLabel player = new JLabel("Player1: 103");
+		player = new JLabel("Player1: 103");
 		player.setLocation(100, 50);
 		player.setSize(400, 50);
 		Font font=new Font("Arial",0,22);
@@ -256,9 +259,20 @@ public class MainMenu implements ActionListener{
 		back.setLocation(250,600);
 		back.addActionListener(this);
 		back.setActionCommand("AboutBack");
-		JLabel info=new JLabel("The best Space Game evah... \nAND IT WORKS! :D");
+		JTextArea info=new JTextArea(20, 40);
+		info.setText("Arrow Keys control the spaceship. \n Try to get from your start planet \n to your end planet with as little fuel as possible\n"
+				+ "Credits: \n"
+				+ "Giovanni Santini \n"
+				+ "Angelo Tacchini \n"
+				+ "Ulisses Trevisan \n"
+				+ "Nikke Tapanainen \n"
+				+ "Gabriel Makinen \n"
+				+ "Michael Etzel \n"
+				+ "Jean-Patrick Bebe \n"
+				+ "Margarida Weber \n"
+				+ "Monica Francisco");
 		info.setLocation(150,100);
-		info.setSize(350,100);
+		info.setSize(350,400);
 		aboutFrame.getContentPane().add(info);
 		aboutFrame.getContentPane().add(back);
 		aboutFrame.getContentPane().setLayout(null);
