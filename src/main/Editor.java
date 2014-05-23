@@ -8,6 +8,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.math.BigDecimal;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,6 +17,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import utils.Vector;
 
 
 public class Editor extends JFrame
@@ -56,6 +59,7 @@ public class Editor extends JFrame
 	
 	public Editor(Icon icon)
 	{
+		SolarSystem.populate();
 		this.icon = icon;
 
 		setSize(500, 500);
@@ -93,17 +97,28 @@ public class Editor extends JFrame
 			public void actionPerformed(ActionEvent event)
 			{
 				String text = velX.getText();
-				for(char c : text.toCharArray())
-				{
-					//if(c.)
-				}
+				String[] output = text.split(", ");
+				System.out.println(output[0]);
+				System.out.println(output[1]);
+				System.out.println(Editor.this.icon.id);
+				
+				SolarSystem.body[Editor.this.icon.id].setVelocity(new Vector(new BigDecimal(output[0]), new BigDecimal(output[1])));
+				System.out.println(SolarSystem.body[Editor.this.icon.id]);
+				
 			}
 		});
 		
 		distX.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent event)
 			{
+				String text = distX.getText();
+				String[] output = text.split(", ");
+				System.out.println(output[0]);
+				System.out.println(output[1]);
+				System.out.println(Editor.this.icon.id);
 				
+				SolarSystem.body[Editor.this.icon.id].setLocation(new Vector(new BigDecimal(output[0]), new BigDecimal(output[1])));
+				System.out.println(SolarSystem.body[Editor.this.icon.id]);
 			}
 		});
 		
