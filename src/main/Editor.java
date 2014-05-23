@@ -59,7 +59,6 @@ public class Editor extends JFrame
 	
 	public Editor(Icon icon)
 	{
-		SolarSystem.populate();
 		this.icon = icon;
 
 		setSize(500, 500);

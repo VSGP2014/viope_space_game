@@ -32,6 +32,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import utils.ConstantsSpaceGame;
+import model.Body;
 import model.Universe;
 
 
@@ -39,6 +40,8 @@ public class Creator extends JFrame
 {
 	private ArrayList<Icon> objects = new ArrayList<Icon>();
 	boolean shift;
+	public static Body start;
+	public static Body end;
 	JPanel view = new JPanel();
 	JPanel buttons = new JPanel();
 	JPanel sliding = new JPanel();
@@ -48,7 +51,9 @@ public class Creator extends JFrame
 	JTextField slideText = new JTextField();
 	JLabel name = new JLabel("Player Name: Player");
 	JSlider slider = new JSlider(0,500,250);
-	JLabel  fuelAmount= new JLabel("Fuel Quantity: " + slider.getValue());
+	JLabel  fuelAmount = new JLabel("Fuel Quantity: " + slider.getValue());
+	public static JLabel startBody = new JLabel("Start: ");
+	public static JLabel endBody = new JLabel("End: ");
 	
 
 	
@@ -60,6 +65,7 @@ public class Creator extends JFrame
 	
 	public Creator()
 	{
+		SolarSystem.populate();
 		//Images
 		BufferedImage mercury = null;
 		BufferedImage venus = null;
@@ -134,15 +140,15 @@ public class Creator extends JFrame
 		System.out.println("Herp derp no image");
 		}
 		
-		Icon one = new Icon(Color.red, sun, 150, 150, 1);
-		Icon two = new Icon(Color.orange, mercury, 150, 150, 2);
-		Icon three = new Icon(Color.blue, venus, 150, 150, 3);
-		Icon four = new Icon(Color.green, earth, 150, 150, 4);
-		Icon five = new Icon(Color.yellow, mars, 150, 150, 5);
-		Icon six = new Icon(Color.orange, jupiter, 150, 150, 6);
-		Icon seven = new Icon(Color.white, saturn, 150, 150, 7);
-		Icon eight = new Icon(Color.cyan, uranus, 150, 150, 8);
-		Icon nine = new Icon(Color.magenta, neptune, 150, 150, 9);
+		Icon one = new Icon(Color.red, sun, 150, 150, 0);
+		Icon two = new Icon(Color.orange, mercury, 150, 150, 1);
+		Icon three = new Icon(Color.blue, venus, 150, 150, 2);
+		Icon four = new Icon(Color.green, earth, 150, 150, 3);
+		Icon five = new Icon(Color.yellow, mars, 150, 150, 4);
+		Icon six = new Icon(Color.orange, jupiter, 150, 150, 5);
+		Icon seven = new Icon(Color.white, saturn, 150, 150, 6);
+		Icon eight = new Icon(Color.cyan, uranus, 150, 150, 7);
+		Icon nine = new Icon(Color.magenta, neptune, 150, 150, 8);
 		
 		this.shift = false;
 		
@@ -300,6 +306,22 @@ public class Creator extends JFrame
 		c.anchor = GridBagConstraints.PAGE_START;
 		c.insets = new Insets(5, 10, 5, 10);
 		sliding.add(name, c);
+		
+		c.weightx = 0.5;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 2;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.insets = new Insets(5, 10, 5, 10);
+		sliding.add(startBody, c);
+		
+		c.weightx = 0.5;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 0;
+		c.gridy = 3;
+		c.anchor = GridBagConstraints.PAGE_START;
+		c.insets = new Insets(5, 10, 5, 10);
+		sliding.add(endBody, c);
 		
 		c.weightx = 0.5;
 		c.fill = GridBagConstraints.HORIZONTAL;
