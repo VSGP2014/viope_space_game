@@ -32,7 +32,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 
-public class Creator
+public class Creator extends JFrame
 {
 	private ArrayList<Icon> objects = new ArrayList<Icon>();
 	boolean shift;
