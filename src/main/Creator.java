@@ -67,6 +67,7 @@ public class Creator
 		BufferedImage uranus = null;
 		BufferedImage neptune = null;
 		BufferedImage sun = null;
+		
 		try{
 			mercury = ImageIO.read(getClass().getResource("mercury.png"));
 		}

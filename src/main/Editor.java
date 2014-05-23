@@ -83,11 +83,20 @@ public class Editor extends JFrame
 				System.out.println("Committed");
 				Editor.this.icon.active = false;
 				System.out.println(Editor.this.icon.id + " is inactive!");
-				/*SolarSystem.body[Editor.this.icon.id].setName(nameX.getText());
+				
+				String distText = distX.getText();
+				String[] distOut = distText.split(", ");
+				
+				String velText = velX.getText();
+				String[] velOut = velText.split(", ");
+				
+				SolarSystem.body[Editor.this.icon.id].setName(nameX.getText());
 				SolarSystem.body[Editor.this.icon.id].setWeight(massX.getText());
 				SolarSystem.body[Editor.this.icon.id].setColor(colors[colorX.getSelectedIndex()]);
-				System.out.println("Velocity: " + velX.getText());
-				System.out.println("Position: " + distX.getText());*/
+				SolarSystem.body[Editor.this.icon.id].setVelocity(new Vector(new BigDecimal(velOut[0]), new BigDecimal(velOut[1])));
+				SolarSystem.body[Editor.this.icon.id].setLocation(new Vector(new BigDecimal(distOut[0]), new BigDecimal(distOut[1])));
+				System.out.println(SolarSystem.body[Editor.this.icon.id]);
+				
 				
 				dispose();
 			}
