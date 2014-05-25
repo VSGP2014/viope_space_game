@@ -20,15 +20,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 
 public class MainMenu implements ActionListener{
-	//private static SpaceGUI spaceGUI;
-	
 	public static JLabel player = new JLabel("Player1: 103");;
 	private JFrame frame = new JFrame("SpaceGame");
 	JFrame scoreFrame= new JFrame("Scores");
 	JFrame aboutFrame= new JFrame("About");
 
 	public MainMenu(){
-		//JFrame frame = new JFrame("SpaceGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setPreferredSize(new Dimension(800,800));
 		
@@ -189,18 +186,17 @@ public class MainMenu implements ActionListener{
 	    picLabel.setLocation(0,0);
 	    picLabel.setSize(frame.getPreferredSize());
 
-
 	    frame.getContentPane().add(picLabel);		
 		frame.getContentPane().setLayout(null);
 		frame.setResizable(false);
 		frame.pack();
 		frame.setVisible(true);
 	}
+
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		String command=arg0.getActionCommand();
-		switch (command)
-		{
+		switch (command){
 			case "Quit" :				
 				System.exit(0);
 				break;
@@ -259,20 +255,27 @@ public class MainMenu implements ActionListener{
 		back.addActionListener(this);
 		back.setActionCommand("AboutBack");
 		JTextArea info=new JTextArea(20, 40);
-		info.setText("Arrow Keys control the spaceship. \n Try to get from your start planet \n to your end planet with as little fuel as possible\n"
+		info.setText("Arrow Keys control the spaceship. \n" +
+                " Try to get from your start planet \n" +
+                " to your end planet with \n" +
+                " as little fuel as possible\n"
 				+ "Credits: \n"
-				+ "Giovanni Santini \n"
-				+ "Angelo Tacchini \n"
-				+ "Ulisses Trevisan \n"
-				+ "Nikke Tapanainen \n"
-				+ "Gabriel Makinen \n"
-				+ "Michael Etzel \n"
-				+ "Jean-Patrick Bebe \n"
-				+ "Margarida Weber \n"
-				+ "Monica Francisco");
+				+ "- Giovanni Santini \n"
+				+ "- Angelo Tacchini \n"
+				+ "- Ulisses Trevisan \n"
+				+ "- Nikke Tapanainen \n"
+				+ "- Gabriel Makinen \n"
+				+ "- Michael Etzel \n"
+				+ "- Jean-Patrick Bebe \n"
+				+ "- Margarida Weber \n"
+				+ "- Monica Francisco");
 		info.setLocation(150,100);
 		info.setSize(350,400);
-		aboutFrame.getContentPane().add(info);
+        info.setEditable(false);
+        info.setCursor(null);
+        info.setOpaque(false);
+        info.setFocusable(false);
+        aboutFrame.getContentPane().add(info);
 		aboutFrame.getContentPane().add(back);
 		aboutFrame.getContentPane().setLayout(null);
 		aboutFrame.setResizable(false);
